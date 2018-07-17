@@ -1,3 +1,11 @@
 <div class="newPad">
-    a pad html is here!!
+   <textarea
+         ref="textArea"
+         v-on:select="selectEvent"
+         v-on:keydown="keyDownEvent"
+         v-on:click="clickEvent"
+         v-on:paste="pasteEvent"
+         v-on:cut="cutEvent"
+    ></textarea>
+
 </div>

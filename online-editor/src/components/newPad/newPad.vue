@@ -212,7 +212,7 @@ export default {
           );
           break;
         case this.inputKindsEnum["KEY PATTERN"]:
-          console.log("KEY PATTERN");
+          //console.log("KEY PATTERN");
           break;
         default:
           console.log("UNCAUGHT ENUMERATOR");

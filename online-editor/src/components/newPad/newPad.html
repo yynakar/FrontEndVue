@@ -1,11 +1,17 @@
 <div class="newPad">
    <textarea
          ref="textArea"
+
+         v-model="textArray"
+
          v-on:select="selectEvent"
          v-on:keydown="keyDownEvent"
+         v-on:keyup="keyUpEvent"
          v-on:click="clickEvent"
          v-on:paste="pasteEvent"
          v-on:cut="cutEvent"
+         v-on:blur="blurEvent"
+
     ></textarea>
 
 </div>

@@ -21,7 +21,7 @@ export default {
       selectionActive: false,
       textWasSelected: false,
       lastSelectionInfo: "",
-      textArray: " "
+      textArray: ""
     };
   },
   methods: {
@@ -68,7 +68,7 @@ export default {
 
       var info = {
         type: "keyDownEvent",
-        key: event.key,
+        string: event.key,
         textCursor: event.target.selectionEnd
       };
     //   console.log(info);
@@ -152,7 +152,7 @@ export default {
         case this.inputKindsEnum["STRING END"]:
 
           if(info.type === "keyDownEvent"){
-            console.log("INSERT CHAR "+info.key+" AT THE END");
+            console.log("INSERT CHAR "+info.string+" AT THE END");
            
           }else if(info.type = "pasteEvent"){
             console.log("INSERT STRING "+info.string+" AT THE END");
@@ -162,18 +162,26 @@ export default {
           break;
         case this.inputKindsEnum["STRING INSIDE"]:
           if(info.type === 'keyDownEvent'){
-            console.log("INSERT CHAR "+info.key+" TO POSITIONS "+info.textCursor);
+            console.log("INSERT CHAR "+info.string+" TO POSITIONS "+info.textCursor);
            
           }else if(info.type = "pasteEvent"){
-            console.log("INSERT STRING "+info.string+" TO POSITIONS "+info.textCursor+" AND "+(info.string.length+info.textCursor));
-            
+            console.log("INSERT STRING "+info.string+" TO POSITIONS "+info.textCursor+" TO "+(info.string.length+info.textCursor-1));
           }
           break;
         case this.inputKindsEnum["ERASE END"]:
-          console.log("ERASE END");
+            if(this.textWasSelected){
+             console.log("ERASE "+ (this.lastSelectionInfo.selectionEnd - this.lastSelectionInfo.selectionStart)+" CHARS FROM THE END");
+            }else{
+                console.log("ERASE LAST CHAR ");
+            }            
+
           break;
         case this.inputKindsEnum["ERASE INSIDE"]:
-          console.log("ERASE INSIDE");
+          if(this.textWasSelected){
+             console.log("ERASE STRING FROM POSITIONS "+this.lastSelectionInfo.selectionStart +" TO "+(this.lastSelectionInfo.selectionEnd-1));
+            }else{
+                console.log("ERASE 1 CHAR  FROM POSITION "+(info.textCursor-1));
+            }   
           break;
         case this.inputKindsEnum["REPLACE END"]:
           console.log("REPLACE END");
@@ -222,7 +230,7 @@ export default {
           }
 
           //if it's backspace we use the erase command
-          if (info.key === "Backspace") {
+          if (info.string === "Backspace") {
             if (info.textCursor === this.textArray.length) {
               return this.inputKindsEnum["ERASE END"];
             } else {

@@ -48,20 +48,6 @@ export default {
       //console.log(this.textArray);
       //BE WARE! textcursor starts from 0
 
-      //if we press a key the text is no more selected
-      //if we select and press something, the slected text
-      //is replaced BUT the textarea doesnt know it was selected
-      // because this event cancels the selection. so we keep
-      // a to textWasSelected the previous value of selection
-      //in order to know if something was selected 1 step before
-      if (this.selectionActive) {
-        this.textWasSelected = true;
-        this.selectionActive = false;
-      } else if (this.textWasSelected) {
-        this.textWasSelected = false;
-        this.selectionActive = false;
-      }
-
       if (event.key === "Control") {
         this.ctrlKeyDown = true;
       }
@@ -71,7 +57,7 @@ export default {
         string: event.key,
         textCursor: event.target.selectionEnd
       };
-    //   console.log(info);
+      //   console.log(info);
       this.handleEvent(info);
     },
     keyUpEvent: function(event) {
@@ -80,7 +66,7 @@ export default {
       }
     },
     clickEvent: function(event) {
-      //console.log("clickEvent!");
+      console.log("clickEvent!");
 
       //if we click the text is no more selected
       //if we select and press something, the slected text
@@ -141,7 +127,7 @@ export default {
     //**************LOGIC ************************** */
     handleEvent: function(info) {
       //console.log("HANDLE");
-       // console.log(info);
+      // console.log(info);
       //console.log(this.textIsSelected());
 
       // console.log (this.inputKindsEnum["KEY PATTERN"] === this.kindOfInput());
@@ -150,44 +136,78 @@ export default {
 
       switch (this.kindOfInput(info)) {
         case this.inputKindsEnum["STRING END"]:
-
-          if(info.type === "keyDownEvent"){
-            console.log("INSERT CHAR "+info.string+" AT THE END");
-           
-          }else if(info.type = "pasteEvent"){
-            console.log("INSERT STRING "+info.string+" AT THE END");
-            
+          if (info.type === "keyDownEvent") {
+            console.log("INSERT CHAR " + info.string + " AT THE END");
+          } else if ((info.type = "pasteEvent")) {
+            console.log("INSERT STRING " + info.string + " AT THE END");
           }
-          
+
           break;
         case this.inputKindsEnum["STRING INSIDE"]:
-          if(info.type === 'keyDownEvent'){
-            console.log("INSERT CHAR "+info.string+" TO POSITIONS "+info.textCursor);
-           
-          }else if(info.type = "pasteEvent"){
-            console.log("INSERT STRING "+info.string+" TO POSITIONS "+info.textCursor+" TO "+(info.string.length+info.textCursor-1));
+          if (info.type === "keyDownEvent") {
+            console.log(
+              "INSERT CHAR " + info.string + " TO POSITIONS " + info.textCursor
+            );
+          } else if ((info.type = "pasteEvent")) {
+            console.log(
+              "INSERT STRING " +
+                info.string +
+                " TO POSITIONS " +
+                info.textCursor +
+                " TO " +
+                (info.string.length + info.textCursor - 1)
+            );
           }
           break;
         case this.inputKindsEnum["ERASE END"]:
-            if(this.textWasSelected){
-             console.log("ERASE "+ (this.lastSelectionInfo.selectionEnd - this.lastSelectionInfo.selectionStart)+" CHARS FROM THE END");
-            }else{
-                console.log("ERASE LAST CHAR ");
-            }            
+          if (this.textWasSelected) {
+            console.log(
+              "ERASE " +
+                (this.lastSelectionInfo.selectionEnd -
+                  this.lastSelectionInfo.selectionStart) +
+                " CHARS FROM THE END"
+            );
+          } else {
+            console.log("ERASE LAST CHAR ");
+          }
 
           break;
         case this.inputKindsEnum["ERASE INSIDE"]:
-          if(this.textWasSelected){
-             console.log("ERASE STRING FROM POSITIONS "+this.lastSelectionInfo.selectionStart +" TO "+(this.lastSelectionInfo.selectionEnd-1));
-            }else{
-                console.log("ERASE 1 CHAR  FROM POSITION "+(info.textCursor-1));
-            }   
+          if (this.textWasSelected) {
+            console.log(
+              "ERASE STRING FROM POSITIONS " +
+                this.lastSelectionInfo.selectionStart +
+                " TO " +
+                (this.lastSelectionInfo.selectionEnd - 1)
+            );
+          } else {
+            console.log("ERASE 1 CHAR  FROM POSITION " + (info.textCursor - 1));
+          }
           break;
         case this.inputKindsEnum["REPLACE END"]:
           console.log("REPLACE END");
+
+          console.log(
+            "REMOVE " +
+              (this.lastSelectionInfo.selectionEnd -
+                +this.lastSelectionInfo.selectionStart) +
+              " CHARS FROM THE END AND REPLACE THEM WITH " +
+              info.string
+          );
+
           break;
         case this.inputKindsEnum["REPLACE INSIDE"]:
-          console.log("REPLACE INSIDE");
+          console.log(
+            "REMOVE " +
+              (this.lastSelectionInfo.selectionEnd -
+                +this.lastSelectionInfo.selectionStart) +
+              " CHARS FROM " +
+              this.lastSelectionInfo.selectionStart +
+              " TO " +
+              (this.lastSelectionInfo.selectionEnd - 1) +
+              " AND REPLACE THEM WITH " +
+              info.string
+          );
           break;
         case this.inputKindsEnum["KEY PATTERN"]:
           console.log("KEY PATTERN");
@@ -229,6 +249,20 @@ export default {
             return this.inputKindsEnum["KEY PATTERN"];
           }
 
+          //if we press a key the text is no more selected
+          //if we select and press something, the slected text
+          //is replaced BUT the textarea doesnt know it was selected
+          // because this event cancels the selection. so we keep
+          // a to textWasSelected the previous value of selection
+          //in order to know if something was selected 1 step before
+          if (this.selectionActive) {
+            this.textWasSelected = true;
+            this.selectionActive = false;
+          } else if (this.textWasSelected) {
+            this.textWasSelected = false;
+            this.selectionActive = false;
+          }
+
           //if it's backspace we use the erase command
           if (info.string === "Backspace") {
             if (info.textCursor === this.textArray.length) {
@@ -253,6 +287,7 @@ export default {
         case "pasteEvent":
           console.log("paste");
 
+          //means there are 2 commands. erase and insert
           if (this.textWasSelected) {
             return this.replaceText();
           }

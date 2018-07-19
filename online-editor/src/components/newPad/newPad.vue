@@ -28,6 +28,7 @@ export default {
     //********************  KEYBOARD EVENTS **********************//
     //*********************************************************** */
     selectEvent: function(event) {
+      //console.log("SELECT EVENT!!");
       var length = event.target.selectionEnd - event.target.selectionStart;
 
       var info = {
@@ -66,7 +67,7 @@ export default {
       }
     },
     clickEvent: function(event) {
-      console.log("clickEvent!");
+      //console.log("clickEvent!");
 
       //if we click the text is no more selected
       //if we select and press something, the slected text
@@ -112,6 +113,7 @@ export default {
       // because this event cancels the selection. so we keep
       // a to textWasSelected the previous value of selection
       //in order to know if something was selected 1 step before
+      //console.log("BLURRRRRRRRR");
       if (this.selectionActive) {
         this.textWasSelected = true;
         this.selectionActive = false;
@@ -238,6 +240,21 @@ export default {
         return this.inputKindsEnum["REPLACE INSIDE"];
       }
     },
+    handleLastSelected: function() {
+      //if we press a key the text is no more selected
+      //if we select and press something, the slected text
+      //is replaced BUT the textarea doesnt know it was selected
+      // because this event cancels the selection. so we keep
+      // a to textWasSelected the previous value of selection
+      //in order to know if something was selected 1 step before
+      if (this.selectionActive) {
+        this.textWasSelected = true;
+        this.selectionActive = false;
+      } else if (this.textWasSelected) {
+        this.textWasSelected = false;
+        this.selectionActive = false;
+      }
+    },
     kindOfInput: function(info) {
       // console.log(info);
 
@@ -249,19 +266,7 @@ export default {
             return this.inputKindsEnum["KEY PATTERN"];
           }
 
-          //if we press a key the text is no more selected
-          //if we select and press something, the slected text
-          //is replaced BUT the textarea doesnt know it was selected
-          // because this event cancels the selection. so we keep
-          // a to textWasSelected the previous value of selection
-          //in order to know if something was selected 1 step before
-          if (this.selectionActive) {
-            this.textWasSelected = true;
-            this.selectionActive = false;
-          } else if (this.textWasSelected) {
-            this.textWasSelected = false;
-            this.selectionActive = false;
-          }
+          this.handleLastSelected();
 
           //if it's backspace we use the erase command
           if (info.string === "Backspace") {
@@ -285,7 +290,9 @@ export default {
 
           break;
         case "pasteEvent":
-          console.log("paste");
+          //console.log("paste");
+
+          this.handleLastSelected();
 
           //means there are 2 commands. erase and insert
           if (this.textWasSelected) {
@@ -300,7 +307,10 @@ export default {
 
           break;
         case "cutEvent":
-          console.log("cutEvent event!");
+          //console.log("cutEvent event!");
+
+          this.handleLastSelected();
+
           if (info.textCursor === this.textArray.length) {
             return this.inputKindsEnum["ERASE END"];
           } else {
@@ -323,7 +333,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$refs);
+    //console.log(this.$refs);
 
     //in order not to change ever again and act as a real enum
     Object.freeze(this.inputKindsEnum);

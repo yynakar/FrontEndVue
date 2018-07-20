@@ -3,6 +3,8 @@
 
 
 <script>
+import CONFIG from '../../config.json';
+
 export default {
   name: "newPad",
   data: function() {
@@ -337,6 +339,7 @@ export default {
 
     //in order not to change ever again and act as a real enum
     Object.freeze(this.inputKindsEnum);
+    console.log(CONFIG);
   }
 };
 </script>

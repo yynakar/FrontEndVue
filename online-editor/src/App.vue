@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    
     <navbar> </navbar>
     <maincontent></maincontent>
     <newPad></newPad>

@@ -20,7 +20,10 @@
     "@vue/cli-plugin-babel": "^3.0.0-rc.5",
     "@vue/cli-plugin-eslint": "^3.0.0-rc.5",
     "@vue/cli-service": "^3.0.0-rc.5",
-    "vue-template-compiler": "^2.5.16"
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.16.1"
   },
   "eslintConfig": {
     "root": true,

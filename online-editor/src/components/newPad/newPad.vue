@@ -4,6 +4,9 @@
 
 <script>
 import CONFIG from '../../config.json';
+import RestService from '../../services/RestService';
+
+
 
 export default {
   name: "newPad",
@@ -23,7 +26,8 @@ export default {
       selectionActive: false,
       textWasSelected: false,
       lastSelectionInfo: "",
-      textArray: ""
+      textArray: "",
+      restService : new RestService()
     };
   },
   methods: {
@@ -340,6 +344,7 @@ export default {
     //in order not to change ever again and act as a real enum
     Object.freeze(this.inputKindsEnum);
     console.log(CONFIG);
+    this.restService.modifyText();
   }
 };
 </script>

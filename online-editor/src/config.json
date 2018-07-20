@@ -1,3 +1,4 @@
 {
-    "ipAddress":1234
+    "serverIp":"192.168.114.42",
+    "serverPort":"8000"
 }

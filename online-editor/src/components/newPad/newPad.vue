@@ -345,6 +345,7 @@ export default {
     Object.freeze(this.inputKindsEnum);
     console.log(CONFIG);
     this.restService.modifyText();
+    this.restService.getAllTheText();
   }
 };
 </script>

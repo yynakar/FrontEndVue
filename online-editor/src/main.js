@@ -11,6 +11,8 @@ Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 Vue.config.productionTip = false
 
+
+
 const router = new VueRouter({
   routes : Routes
 });

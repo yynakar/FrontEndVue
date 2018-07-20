@@ -2,8 +2,7 @@
         background-color: #5F779E;
         height: 70px;
     }
-    
-    #logo {
+    /* #logo {
         vertical-align: middle;
     }
     
@@ -20,7 +19,7 @@
         display: block;
         font-size: 50%;
         line-height: 1;
-    }
+    }*/
     
     .navbar-nav {
         margin-left: auto;

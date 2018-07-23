@@ -2,21 +2,21 @@
   <div id="app">
     <navbar> </navbar>
     <maincontent></maincontent>
-    <newPad></newPad>
+    <users></users>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import navbar from './components/navbar/navbar.vue'
-import newPad from './components/newPad/newPad.vue'
 import MainContent from './components/MainContent/MainContent.vue'
+import users from './components/users/index.vue'
 
 export default {
   components: {
-    'newPad':newPad,
     'navbar':navbar,
-    'maincontent':MainContent
+    'maincontent':MainContent,
+    'users':users
   }
 }
 </script>

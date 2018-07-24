@@ -2,6 +2,8 @@
     text-align: center;
     display: block;
     align-self: auto;
+    height: 100%;
+    width: 100%;
 }
 
 input {
@@ -21,12 +23,9 @@ input:focus {
 
 .col-centered {
     float: none;
-    /* inline-block space fix */
-    margin-right: -4px;
     text-align: center;
     background-color: #ccc;
-    overflow: hidden;
-    display: block;
+    display: inline-block;
 }
 
 .newpad {
@@ -78,4 +77,10 @@ input:-moz-placeholder {
     /* Firefox 18- */
     color: #427bb4;
     text-align: center;
+}
+
+users {
+    display: block;
+    background-color: aqua;
+    height: 200px;
 }

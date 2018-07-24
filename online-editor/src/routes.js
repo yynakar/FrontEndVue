@@ -1,5 +1,10 @@
-//import AboutPage from './components/AboutPage/AboutPage.vue';
+import MainContent from './components/MainContent/MainContent.vue';
+import settingsPage from './components/settingsPage/index.vue';
+import aboutPage from './components/aboutPage/index.vue';
 export default [
-    //{path:'/about' , component:AboutPage}
-    //{path:'/home' , component:AboutPage}
+    { path: '/edit-page', component: MainContent },
+    //{path:'/' , component:HomePage}
+    { path: 'about', component: aboutPage },
+    { path: 'settings', component: settingsPage }
+
 ]

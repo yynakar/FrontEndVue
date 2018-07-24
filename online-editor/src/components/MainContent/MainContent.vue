@@ -5,13 +5,15 @@
 
 <script>
 import newPad from '../newPad/newPad.vue'
+import index from '../users/index.vue'
 
 export default {
     name:"MainContent",
     methods:{
     },
     components: {
-        'newPad':newPad
+        'newPad':newPad,
+        'users':index
   }
 }
 </script>

@@ -3,6 +3,11 @@
 
 
 <script>
+import CONFIG from '../../config.json';
+import RestService from '../../services/RestService';
+
+
+
 export default {
   name: "newPad",
   data: function() {
@@ -21,7 +26,9 @@ export default {
       selectionActive: false,
       textWasSelected: false,
       lastSelectionInfo: "",
-      textArray: ""
+      textArray: "",
+      restService : new RestService(),
+      testChris: ["127.0.0.1:52938","127.0.0.1:52938"]
     };
   },
   methods: {
@@ -48,6 +55,12 @@ export default {
     keyDownEvent: function(event) {
       //console.log(this.textArray);
       //BE WARE! textcursor starts from 0
+
+      //this.restService.modifyText();
+      console.log("ipppppp");
+      console.log(this.restService.ipAndPort())
+      this.restService.createPad();
+     // this.restService.loadPad();
 
       if (event.key === "Control") {
         this.ctrlKeyDown = true;
@@ -337,6 +350,12 @@ export default {
 
     //in order not to change ever again and act as a real enum
     Object.freeze(this.inputKindsEnum);
+    console.log(CONFIG);
+    this.restService.modifyText();
+    this.restService.getAllTheText();
+
+    console.log("TESTTTTTTTTTTT");
+    this.restService.simpleGet();
   }
 };
 </script>

@@ -1,7 +1,7 @@
 import MainContent from './components/MainContent/MainContent.vue'
 import settingsPage from './components/settingsPage/index.vue'
-import aboutPage from './components/aboutPage/index.vue'
-import neWpad from './components/neWpad/index.vue'
+import aboutPage from './components/AboutPage/index.vue'
+// import neWpad from './components/neWpad/index.vue'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
@@ -16,7 +16,7 @@ export default new VueRouter({
         {
             path: '/newpad',
             name: 'namePad',
-            component: neWpad,
+            component: MainContent,
             children: [{
                 path: '/about',
                 name: 'About',

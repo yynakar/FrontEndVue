@@ -5,8 +5,8 @@
 
 <script>
 import newPad from '../newPad/newPad.vue'
-import index from '../users/index.vue'
 import navbar from '../navbar/navbar.vue'
+import users from '../users/index.vue'
 
 export default {
     name:"MainContent",
@@ -15,7 +15,7 @@ export default {
     components: {
         'navbar':navbar,
         'newPad':newPad,
-        'users':index
+        'users':users
     }
 }
 </script>

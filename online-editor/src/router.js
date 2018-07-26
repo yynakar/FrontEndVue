@@ -3,11 +3,11 @@ import settingsPage from './components/settingsPage/index.vue'
 import aboutPage from './components/aboutPage/index.vue'
 import neWpad from './components/neWpad/index.vue'
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
-export default new Router({
+export default new VueRouter({
     routes: [{
             path: '/',
             name: 'Homepage',
@@ -18,22 +18,22 @@ export default new Router({
             name: 'namePad',
             component: neWpad,
             children: [{
-                path: '/about',
+                path: 'about',
                 name: 'About',
                 component: aboutPage
             }]
         },
-        { /*ID stands for current editor of the document  /:ID*/
+        { /*ID stands for current editor of the document  /:id*/
             path: '/edit',
             name: 'EditPage',
             component: MainContent,
             children: [{
-                    path: '/about',
+                    path: 'about',
                     name: 'AboutPage',
                     component: aboutPage
                 },
                 {
-                    path: '/settings',
+                    path: 'settings',
                     name: 'SettingsPage',
                     component: settingsPage
                 }

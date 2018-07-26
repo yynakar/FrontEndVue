@@ -24,9 +24,10 @@ export default new VueRouter({
             }]
         },
         { /*ID stands for current editor of the document  /:id*/
-            path: '/edit',
+            path: '/edit/:id',
             name: 'EditPage',
             component: MainContent,
+            props: true,
             children: [{
                     path: '/about',
                     name: 'AboutPage',

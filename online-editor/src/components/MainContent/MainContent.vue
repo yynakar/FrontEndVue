@@ -1,4 +1,5 @@
 <template  src="./MainContent.html" >
+    <router-view></router-view>
 </template>
 <style  src="./MainContent.css" scoped></style>
 
@@ -16,6 +17,13 @@ export default {
         'navbar':navbar,
         'newPad':newPad,
         'users':users
+    },
+    /*Here will be placed the id we get from the backend*/
+    props: {
+        id: {
+            type: Number,
+            default: 5
+        }
     }
 }
 </script>

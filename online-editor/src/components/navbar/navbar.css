@@ -1,10 +1,13 @@
     .navbar-default {
         background-color: #2368B1;
     }
-    
-    .navbar-brand span {
+    /*.navbar-brand span {
         color: #ffffff;
         display: inline-block;
+    }*/
+    
+    button a {
+        font-size: 100%;
     }
     
     .navbar-nav {

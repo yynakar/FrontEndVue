@@ -1,6 +1,6 @@
 import MainContent from './components/MainContent/MainContent.vue'
 import settingsPage from './components/settingsPage/index.vue'
-import aboutPage from './components/AboutPage/index.vue'
+import aboutPage from './components/aboutPage/index.vue'
 // import neWpad from './components/neWpad/index.vue'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -24,9 +24,10 @@ export default new VueRouter({
             }]
         },
         { /*ID stands for current editor of the document  /:id*/
-            path: '/edit',
+            path: '/edit/:id',
             name: 'EditPage',
             component: MainContent,
+            props: true,
             children: [{
                     path: '/about',
                     name: 'AboutPage',

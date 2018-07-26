@@ -1,11 +1,10 @@
     .navbar-default {
         background-color: #2368B1;
     }
-    
-    .navbar-brand span {
+    /*.navbar-brand span {
         color: #ffffff;
         display: inline-block;
-    }
+    }*/
     
     .navbar-nav {
         margin-left: auto;

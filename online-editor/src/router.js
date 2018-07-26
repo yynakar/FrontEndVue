@@ -18,7 +18,7 @@ export default new VueRouter({
             name: 'namePad',
             component: neWpad,
             children: [{
-                path: 'about',
+                path: '/about',
                 name: 'About',
                 component: aboutPage
             }]
@@ -28,12 +28,12 @@ export default new VueRouter({
             name: 'EditPage',
             component: MainContent,
             children: [{
-                    path: 'about',
+                    path: '/about',
                     name: 'AboutPage',
                     component: aboutPage
                 },
                 {
-                    path: 'settings',
+                    path: '/settings',
                     name: 'SettingsPage',
                     component: settingsPage
                 }

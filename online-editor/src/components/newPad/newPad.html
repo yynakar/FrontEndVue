@@ -1,17 +1,7 @@
-<div class="newPad">
-   <textarea
-         ref="textArea"
+<div class="newPad col">
+    <!--TODO:make sure its rensponsive-->
+    <textarea id="textArea" v-model="textArray" v-on:select="selectEvent" v-on:keydown="keyDownEvent" v-on:keyup="keyUpEvent" v-on:click="clickEvent" v-on:paste="pasteEvent" v-on:cut="cutEvent" v-on:blur="blurEvent" class="form-control rounded-0" placeholder="Start creating your document.."
+        rows="15">
 
-         v-model="textArray"
-
-         v-on:select="selectEvent"
-         v-on:keydown="keyDownEvent"
-         v-on:keyup="keyUpEvent"
-         v-on:click="clickEvent"
-         v-on:paste="pasteEvent"
-         v-on:cut="cutEvent"
-         v-on:blur="blurEvent"
-
-    ></textarea>
-
+    </textarea>
 </div>

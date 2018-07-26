@@ -6,6 +6,10 @@
         display: inline-block;
     }*/
     
+    button a {
+        font-size: 100%;
+    }
+    
     .navbar-nav {
         margin-left: auto;
     }

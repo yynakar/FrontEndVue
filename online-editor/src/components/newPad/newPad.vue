@@ -27,7 +27,8 @@ export default {
       textWasSelected: false,
       lastSelectionInfo: "",
       textArray: "",
-      restService : new RestService()
+      restService : new RestService(),
+      testChris: ["127.0.0.1:52938","127.0.0.1:52938"]
     };
   },
   methods: {
@@ -54,6 +55,12 @@ export default {
     keyDownEvent: function(event) {
       //console.log(this.textArray);
       //BE WARE! textcursor starts from 0
+
+      //this.restService.modifyText();
+      console.log("ipppppp");
+      console.log(this.restService.ipAndPort())
+      this.restService.createPad();
+     // this.restService.loadPad();
 
       if (event.key === "Control") {
         this.ctrlKeyDown = true;
@@ -346,6 +353,9 @@ export default {
     console.log(CONFIG);
     this.restService.modifyText();
     this.restService.getAllTheText();
+
+    console.log("TESTTTTTTTTTTT");
+    this.restService.simpleGet();
   }
 };
 </script>

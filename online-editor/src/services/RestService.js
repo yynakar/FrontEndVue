@@ -6,22 +6,13 @@ import VueAxios from 'vue-axios'
 import newPad from '../components/newPad/newPad.vue'
 Vue.use(VueAxios, axios)
 
-// Vue.axios.defaults.headers.common['Access-Control-Allow-Origin'] = CONFIG.serverIp;
-// Vue.axi-os.defaults.headers.common['Access-Control-Allow-Headers'] = 'Content-Type, Authorization';
-//http://192.168.114.42:8000/PadHistory
-//Vue.axios.post(CONFIG.serverIp+":"+CONFIG.serverPort+"/PadHistory", {
-//http://192.168.114.18:8000/edit
-
 export default class RestService {
-
-  //let serverIp = "http://192.168.114.18";
 
   constructor() {
     this.ip = CONFIG.serverIp;
     this.port = CONFIG.serverPort;
     this.padId = null;
     var data = newPad.$data;
-    console.log("ASDADASDASDASDASDAS");
     console.log(data);
   }
 

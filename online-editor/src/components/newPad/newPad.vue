@@ -53,14 +53,9 @@ export default {
       //console.log(info);
     },
     keyDownEvent: function(event) {
-      //console.log(this.textArray);
       //BE WARE! textcursor starts from 0
 
-      this.restService.modifyText();
-      //console.log("ipppppp");
-      //console.log(this.restService.ipAndPort());
-
-
+      //this.restService.modifyText();
       if (event.key === "Control") {
         this.ctrlKeyDown = true;
       }
@@ -125,7 +120,6 @@ export default {
       // because this event cancels the selection. so we keep
       // a to textWasSelected the previous value of selection
       //in order to know if something was selected 1 step before
-      //console.log("BLURRRRRRRRR");
       if (this.selectionActive) {
         this.textWasSelected = true;
         this.selectionActive = false;
@@ -344,7 +338,6 @@ export default {
       }
     },
     getPadID: function() {
-      //console.log("padiddddddd" + this.padId);
       return this.padId;
     },
     createPad: function() {
@@ -370,20 +363,6 @@ export default {
     //in order not to change ever again and act as a real enum
     Object.freeze(this.inputKindsEnum);
     console.log(CONFIG);
-    //this.restService.modifyText();
-    //this.restService.getAllTheText();
-
-    //console.log("TESTTTTTTTTTTT");
-    //this.restService.simpleGet();
-    // this.restService.setPadID(1234567890);
-
-    //console.log(this.padId);
-
-    //console.log(this.createPadResponse);
-
-    
-
-
   }
 };
 </script>

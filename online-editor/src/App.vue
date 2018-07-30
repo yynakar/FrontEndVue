@@ -5,8 +5,13 @@
 </template>
 
 <script>
+import newPad from './components/newPad/newPad.vue';
+
 export default {
-  name: 'app'
+  name: 'app',
+  mounted:function(){
+
+  }
 }
 </script>
 

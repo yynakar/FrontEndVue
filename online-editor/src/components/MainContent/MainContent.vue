@@ -5,8 +5,11 @@
 <script>
 export default {
     name:"MainContent",
-    methods:{   
-        
-    }
+    data:function(){
+        return {
+            padID: ''
+        }
+    },
+    methods:{}
 }
 </script>

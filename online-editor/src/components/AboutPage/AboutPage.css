@@ -1,3 +1,42 @@
-.AboutPage{
-    
+.backgrounding{
+    background: url(./background_img.jpg);
+    align-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.panel-body{
+    background: blur(30px);
+    border-radius: 10px;
+    text-align: left;
+    box-align: center;
+    position: center;    
+    height: 70vh;
+}
+.panel-transparent {
+    background: blur(10px);
+}
+.panel-transparent .panel-body{
+    background:rgba(255,255,255,0.6);
+}
+h2{
+    font-family: 'Roboto', sans-serif;
+    color: rgba(0,0,0,1);
+}
+h4{
+    font-family: 'Roboto', sans-serif;
+    color: #5F779E;
+    width: auto;
+}
+.clear-20{
+    margin-top:20px;
+}
+.clear-40{
+    margin-top:40px;
+}
+.clear-10{
+    margin-top:10px;
+}
+.clear-50{
+    margin-top:50px;
 }

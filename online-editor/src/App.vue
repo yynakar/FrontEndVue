@@ -3,7 +3,6 @@
     
     <navbar> </navbar>
     <maincontent></maincontent>
-    <newPad></newPad>
     <router-view></router-view>
   </div>
 </template>
@@ -12,18 +11,22 @@
 import navbar from './components/navbar/navbar.vue'
 import newPad from './components/newPad/newPad.vue'
 import MainContent from './components/MainContent/MainContent.vue'
+import AboutPage from './components/AboutPage/AboutPage.vue'
+import Settings from './components/Settings/Settings.vue'
 
 export default {
   components: {
     'newPad':newPad,
     'navbar':navbar,
-    'maincontent':MainContent
+    'maincontent':MainContent,
+    'aboutpage':AboutPage,
+    'settings':Settings
   }
 }
 </script>
 
 <style>
 #app {
-
+  
 }
 </style>

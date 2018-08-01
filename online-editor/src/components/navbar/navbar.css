@@ -72,3 +72,8 @@
     .invisible {
         visibility: hidden;
     }
+
+    .navImage{
+        height:30%;
+        width:30%;
+    }

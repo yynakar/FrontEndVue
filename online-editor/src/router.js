@@ -2,7 +2,6 @@ import MainContent from './components/MainContent/MainContent.vue'
 import Settings from './components/Settings/Settings.vue'
 import AboutPage from './components/AboutPage/AboutPage.vue'
 import edit from './components/edit/edit.vue'
-// import neWpad from './components/neWpad/index.vue'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 

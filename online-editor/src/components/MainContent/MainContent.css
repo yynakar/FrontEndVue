@@ -37,17 +37,17 @@ h2{
 }
 h4{
     font-family: 'Roboto', sans-serif;
-    color: #5F779E;
+    color: #2368B1;
     width: auto;
 }
 .custom_newPad_btn{
-    background-color: #5F779E;
+    background-color: #2368B1;
     color: white;
     font: bold; 
     width: 300px !important;
 }
 .custom_go_btn{
-    background-color: #5F779E;
+    background-color: #2368B1;
     color: white;
     font: bold; 
 }

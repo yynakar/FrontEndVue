@@ -17,29 +17,27 @@ export default new VueRouter({
             path: '/newpad',
             name: 'newPad',
             component: edit,
-            children: [{
-                path: '/about',
-                name: 'About',
-                component: AboutPage
-            }]
+            /*TODO:newpad component will be here*/
+        },
+        {
+            path: '/newpad/about',
+            component: AboutPage
         },
         { /*ID stands for current editor of the document  /:id*/
             path: '/edit/:id',
+            component: edit,
+            props: true,
+        },
+        {
+            path: '/edit/:id/about',
+            component: AboutPage,
+            props: true,
+        },
+        {
+            path: '/edit/:id/settings',
+            name: 'Settings',
             component: Settings,
             props: true,
-            /*children: [{
-                    path: '/about',
-                    name: 'AboutPage',
-                    component: AboutPage
-                },
-                {
-                    path: '/settings',
-                    name: 'Settings',
-                    component: Settings
-                }
-
-            ]*/
-
         }
     ]
 })

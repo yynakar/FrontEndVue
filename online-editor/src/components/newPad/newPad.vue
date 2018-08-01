@@ -5,6 +5,7 @@
 <script>
 import CONFIG from "../../config.json";
 import RestService from "../../services/RestService";
+import PollingService from "../../services/PollingService";
 
 export default {
   name: "newPad",
@@ -26,6 +27,7 @@ export default {
       lastSelectionInfo: "",
       textArray: "",
       restService: new RestService(),
+      pollingService: new PollingService(),
       padId: " ",
       createPadResponse: null,
       idInput:" "
@@ -55,7 +57,7 @@ export default {
     keyDownEvent: function(event) {
       //BE WARE! textcursor starts from 0
 
-      //this.restService.modifyText();
+      this.restService.modifyText();
       if (event.key === "Control") {
         this.ctrlKeyDown = true;
       }
@@ -354,6 +356,7 @@ export default {
     },
     loadPad:function(){
       console.log("LOAD PAD CLICKED!");
+      CONFIG.padId = this.idInput;
       this.restService.loadPadRequest(this.idInput)
     }
   },

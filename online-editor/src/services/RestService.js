@@ -38,6 +38,8 @@ export default class RestService {
       "Pad_ID": CONFIG.padId
     };
 
+    console.log("pad iddddddd "+CONFIG.padId);
+    
     console.log(json);
 
     Vue.axios.put(this.ipAndPort() + "/Edit", json)

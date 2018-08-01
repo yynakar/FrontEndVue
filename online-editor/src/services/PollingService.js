@@ -1,5 +1,5 @@
 import CONFIG from '../config.json';
-
+import RestService from './RestService.js'
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -9,17 +9,19 @@ Vue.use(VueAxios, axios)
 export default class PollingService {
 
   constructor() {
-    this.pollingTimeInterval = 500; //milliseconds
+    this.pollingTimeInterval = 1000; //milliseconds
     this.timesTicked = 0;
 
-    this.ticker = setInterval(tick => {
-      console.log(this.timesTicked);
-      this.timesTicked = this.timesTicked + 1;
+    this.restService = new RestService();
+
+    this.clock = setInterval(ticker => {
+      this.restService.checkForChange()
     }, this.pollingTimeInterval);
 
+    t
+   
+
   }
-
-
 
 
 

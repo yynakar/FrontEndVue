@@ -72,6 +72,10 @@ export default class RestService {
 
   }
 
+  checkForChange(){
+    console.log("check for change called!");
+  }
+
   getAllTheText() {
 
   }
@@ -88,8 +92,5 @@ export default class RestService {
       pad(d.getUTCMinutes()) + ':' +
       pad(d.getUTCSeconds()) + 'Z'
   }
-
-
-
 
 }

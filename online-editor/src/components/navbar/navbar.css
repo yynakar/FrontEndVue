@@ -1,11 +1,74 @@
     .navbar-default {
-        background-color: #5F779E;
+        background-color: #2368B1;
+        
+    }
+    
+    img{
     }
 
-    .navbar-brand {
-        height: 60px;
-      }
-
-    nav .navbar-nav li a{
-        color: white !important;
-        }
+    button a {
+        font-size: 100%;
+    }
+    
+    .navbar-nav {
+        margin-left: auto;
+    }
+    
+    nav {
+        padding: 0 0 0 0;
+    }
+    
+    nav ul {
+        padding: 0 0 0 0;
+    }
+    
+    nav .navbar-nav li a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    nav navbar-nav .col {
+        padding: 0 0 0 0;
+    }
+    
+    button:hover {
+        background-color: #0f2e4e;
+    }
+    
+    button {
+        background-color: inherit;
+        border: none;
+        /*height: 100px;
+        width: 80px;*/
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+    
+    .row.no-gutter {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .row.no-gutter [class*='col-']:not(:first-child),
+    .row.no-gutter [class*='col-']:not(:last-child) {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    
+    .row>div {
+        border: none;
+    }
+    
+    .right {
+        margin-right: 0;
+        padding-right: 0;
+        float: right !important;
+    }
+    
+    .visible {
+        visibility: visible;
+    }
+    
+    .invisible {
+        visibility: hidden;
+    }

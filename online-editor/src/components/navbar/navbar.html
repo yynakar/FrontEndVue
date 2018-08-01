@@ -1,17 +1,37 @@
-<div class="navBar">
-  
-    <nav class="navbar navbar-default">
-        <div class="container">
-          <div class="navbar-header"> 
-              <a class="navbar-brand" href="#">
-                  <img src="./logo_online.png" width="30" height="30" alt="">
-              </a>
-          </div> 
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-                  <a href="#">About</a>
-            </li>
-          </ul>
+<!--TODO:make whole nav smaller-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="left">
+            <a class="row navbar-brand" id="logo" href="#">
+                <img src=./piclogo.png alt="Logo">
+                <img src=./Logo.png alt="LogoText">
+                <!--TODO:make Editor larger font
+                <span>Online
+                    <br>Document
+                    <br>Editor</span>-->
+            </a>
         </div>
-      </nav> 
+
+        <div class="right">
+            <ul class="nav navbar-nav pull-right">
+                <div class="row no-gutter">
+                    <div class="col text-center col-md-6 visible">
+                        <li>
+                            <button>
+                                <a href="#">Settings</a>
+                            </button>
+                        </li>
+                    </div>
+                    <!--TODO: float About button exactly to the right of the nav-->
+                    <div class="col text-center col-md-6 float-md-right">
+                        <li>
+                            <button>
+                                <a href="#">About</a>
+                            </button>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
     </div>
+</nav>

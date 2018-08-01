@@ -12,6 +12,14 @@ export default new VueRouter({
             path: '/',
             component: MainContent
         },
+        { //TODO: this will be gone when bus is ready(see navbar)
+            path: '/about',
+            component: AboutPage
+        },
+        { //TODO: this will be gone when bus is ready(see navbar)
+            path: '/settings',
+            component: Settings
+        },
         {
             path: '/newpad',
             name: 'newPad',

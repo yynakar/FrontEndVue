@@ -1,0 +1,52 @@
+<div class="Settings">
+    <div class="backgrounding">
+        <div class="container">
+            <div class="grey-row">
+                <div class="title">Settings</div>
+            </div>
+            <div class="white-row">
+                <div class="h-100 pt-1 pb-2 panel">
+                    <div class="col headers-text">Edit Title</div>
+                    <form class="col mt-2 form-inline">
+                        <div class="input"> 
+                            <input type="text" v-model="padID" class=" form-control form-control-md" id="inlineFormInput" placeholder="document title">
+                                <button type="button" class="btn custom_rename_btn ml-3">
+                                    <font weight=normal size=4> Rename </font>
+                                </button>
+                        </div>
+                    </form> 
+                    <div class="mt-sm-0 mt-3 col headers-text">Edit/View document</div>
+                    <div class="mt-sm-0 col-7 ml-3 mt-2 box">
+                        <span class="text"> 20/Sept/2018 13:44:59 - 127.0.0.1:43198 - Started session </span> <br>
+                        <span class="text"> 20/Sept/2018 13:44:59 - 127.0.0.1:43198 - Started session </span> <br>
+                        <span class="text"> 20/Sept/2018 13:44:59 - 127.0.0.1:43198 - Started session </span> <br>
+                        <span class="text"> 20/Sept/2018 13:44:59 - 127.0.0.1:43198 - Started session </span>
+                    </div>
+                    <div class="mt-sm-0 mt-3 col headers-text">Danger Zone</div>
+                    <div class="mt-sm-0 ml-3 mt-2 col-7 red-box">
+                        <div class="header-box-text"> Empty this document </div>
+                            <div class="summary-text">
+                                This action will empty the content of this document.
+                                <span>
+                                        <button type="button" class="ml-2 text-justify btn empty-btn">
+                                            Empty this document
+                                        </button>
+                                </span>
+                            </div>
+                            <hr>
+                            <div class="header-box-text"> Delete this document </div>
+                            <div class="summary-text">
+                                The document will be destroyed forever  
+                                <span>
+                                    <button type="button" class="ml-5 text-justify btn delete-btn">
+                                            Delete this document
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

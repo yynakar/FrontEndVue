@@ -3,10 +3,9 @@
 
 
 <script>
-import CONFIG from '../../config.json';
-import RestService from '../../services/RestService';
-
-
+import CONFIG from "../../config.json";
+import RestService from "../../services/RestService";
+import PollingService from "../../services/PollingService";
 
 export default {
   name: "newPad",
@@ -27,8 +26,11 @@ export default {
       textWasSelected: false,
       lastSelectionInfo: "",
       textArray: "",
-      restService : new RestService(),
-      testChris: ["127.0.0.1:52938","127.0.0.1:52938"]
+      restService: new RestService(),
+      pollingService: new PollingService(),
+      padId: " ",
+      createPadResponse: null,
+      idInput:" "
     };
   },
   methods: {
@@ -53,15 +55,9 @@ export default {
       //console.log(info);
     },
     keyDownEvent: function(event) {
-      //console.log(this.textArray);
       //BE WARE! textcursor starts from 0
 
-      //this.restService.modifyText();
-      console.log("ipppppp");
-      console.log(this.restService.ipAndPort())
-      this.restService.createPad();
-     // this.restService.loadPad();
-
+      this.restService.modifyText();
       if (event.key === "Control") {
         this.ctrlKeyDown = true;
       }
@@ -126,7 +122,6 @@ export default {
       // because this event cancels the selection. so we keep
       // a to textWasSelected the previous value of selection
       //in order to know if something was selected 1 step before
-      //console.log("BLURRRRRRRRR");
       if (this.selectionActive) {
         this.textWasSelected = true;
         this.selectionActive = false;
@@ -343,6 +338,26 @@ export default {
       } else {
         return false;
       }
+    },
+    getPadID: function() {
+      return this.padId;
+    },
+    createPad: function() {
+      this.restService.createPadRequest().then(
+        result => {
+          CONFIG.padId = result.data.id;
+          console.log("PAD created with id: "+CONFIG.padId);
+          console.log(CONFIG);
+        },
+        function(err) {
+          console.log("Error: Could not create pad");
+        }
+      );
+    },
+    loadPad:function(){
+      console.log("LOAD PAD CLICKED!");
+      CONFIG.padId = this.idInput;
+      this.restService.loadPadRequest(this.idInput)
     }
   },
   mounted() {
@@ -351,11 +366,6 @@ export default {
     //in order not to change ever again and act as a real enum
     Object.freeze(this.inputKindsEnum);
     console.log(CONFIG);
-    this.restService.modifyText();
-    this.restService.getAllTheText();
-
-    console.log("TESTTTTTTTTTTT");
-    this.restService.simpleGet();
   }
 };
 </script>

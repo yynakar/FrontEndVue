@@ -1,0 +1,71 @@
+.backgrounding{
+    background-color: #dcdcdc;
+    height: 100vh;
+    opacity: 51;
+}
+.title{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 34px;
+}
+.headers-text{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 24px;   
+}
+.panel{
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #c8c8c8;
+
+}
+.custom_rename_btn{
+    border: #c8c8cc;
+    background: #2368B1;
+    color: white;
+    opacity: 0.5;
+    border-radius: 2;
+}
+.box{
+    border: #c8c8c8;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+}
+.text{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;   
+}
+.red-box{
+    border: #AE0000;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    opacity: 0.62;
+}
+.header-box-text{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 22px;
+    color: black;   
+}
+.summary-text{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px; 
+    color: black; 
+}
+hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #d8d8d8 ;
+    border-style: solid;
+    border-width: 1px 0;
+  }
+.empty-btn{
+    background: linear-gradient(#F1F5F9, #757575 );
+    color: #C30000;
+}
+.delete-btn{
+    background: linear-gradient(#F1F5F9, #757575 );
+    color: #C30000;
+}

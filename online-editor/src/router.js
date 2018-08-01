@@ -1,6 +1,7 @@
 import MainContent from './components/MainContent/MainContent.vue'
-import settingsPage from './components/settingsPage/index.vue'
-import aboutPage from './components/AboutPage/index.vue'
+import Settings from './components/Settings/Settings.vue'
+import AboutPage from './components/AboutPage/AboutPage.vue'
+import edit from './components/edit/edit.vue'
 // import neWpad from './components/neWpad/index.vue'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -10,36 +11,34 @@ Vue.use(VueRouter);
 export default new VueRouter({
     routes: [{
             path: '/',
-            name: 'Homepage',
-            component: MainContent /*This will be replaced by homepage component*/
+            component: MainContent
         },
         {
             path: '/newpad',
-            name: 'namePad',
-            component: MainContent,
+            name: 'newPad',
+            component: edit,
             children: [{
                 path: '/about',
                 name: 'About',
-                component: aboutPage
+                component: AboutPage
             }]
         },
         { /*ID stands for current editor of the document  /:id*/
             path: '/edit/:id',
-            name: 'EditPage',
-            component: MainContent,
+            component: Settings,
             props: true,
-            children: [{
+            /*children: [{
                     path: '/about',
                     name: 'AboutPage',
-                    component: aboutPage
+                    component: AboutPage
                 },
                 {
                     path: '/settings',
-                    name: 'SettingsPage',
-                    component: settingsPage
+                    name: 'Settings',
+                    component: Settings
                 }
 
-            ]
+            ]*/
 
         }
     ]

@@ -11,19 +11,11 @@ import users from '../users/index.vue'
 
 export default {
     name:"MainContent",
-    methods:{
-    },
-    components: {
-        'navbar':navbar,
-        'newPad':newPad,
-        'users':users
-    },
-    /*Here will be placed the id we get from the backend*/
-    props: {
-        id: {
-            type: Number,
-            default: 5
+    data:function(){
+        return {
+            padID: ''
         }
-    }
+    },
+    methods:{}
 }
 </script>

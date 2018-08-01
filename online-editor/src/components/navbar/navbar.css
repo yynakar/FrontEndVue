@@ -1,11 +1,11 @@
     .navbar-default {
         background-color: #2368B1;
+        
     }
-    /*.navbar-brand span {
-        color: #ffffff;
-        display: inline-block;
-    }*/
     
+    img{
+    }
+
     button a {
         font-size: 100%;
     }
@@ -38,8 +38,8 @@
     button {
         background-color: inherit;
         border: none;
-        height: 100px;
-        width: 80px;
+        /*height: 100px;
+        width: 80px;*/
         -webkit-appearance: none;
         -moz-appearance: none;
     }
@@ -71,4 +71,9 @@
     
     .invisible {
         visibility: hidden;
+    }
+
+    .navImage{
+        height:30%;
+        width:30%;
     }

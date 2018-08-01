@@ -1,22 +1,32 @@
 <template>
   <div id="app">
+    <navbar> </navbar>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import newPad from './components/newPad/newPad.vue';
+import navbar from './components/navbar/navbar.vue'
+import MainContent from './components/MainContent/MainContent.vue'
+import AboutPage from './components/AboutPage/AboutPage.vue'
+import Settings from './components/Settings/Settings.vue'
+import edit from './components/edit/edit.vue'
+
 
 export default {
   name: 'app',
-  mounted:function(){
-
+  components: {
+    'newPad':edit,
+    'navbar':navbar,
+    'maincontent':MainContent,
+    'aboutpage':AboutPage,
+    'settings':Settings
   }
 }
 </script>
 
 <style>
-#app{
-
+#app {
+  
 }
 </style>

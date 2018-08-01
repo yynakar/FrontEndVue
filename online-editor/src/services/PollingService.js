@@ -18,9 +18,6 @@ export default class PollingService {
       this.restService.checkForChange()
     }, this.pollingTimeInterval);
 
-    t
-   
-
   }
 
 

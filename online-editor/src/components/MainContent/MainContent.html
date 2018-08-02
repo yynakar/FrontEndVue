@@ -15,7 +15,7 @@
                             </div>        
                             <div class="clear-40 col-xs-3">
                                 <router-link to="/newPad"> 
-                                    <button type="button" class="btn custom_newPad_btn"> 
+                                    <button type="button" @click="requestForNewID" class="btn custom_newPad_btn"> 
                                         <font weight=normal size=5> New Pad </font>                                       
                                     </button>
                                 </router-link>
@@ -28,8 +28,8 @@
                             <form class="form-inline  justify-content-center">
                                 <div class="input"> 
                                     <input type="text" v-model="padID" class=" form-control form-control-lg" id="inlineFormInput" placeholder="your pad ID">
-                                    <router-link to="/edit">
-                                        <button v-on:click="sendID"  type="button" class="btn custom_go_btn ml-3">
+                                    <router-link to="/edit:id">
+                                        <button v-on:click="sendID" @keyup.enter="customRoute" type="button" class="btn custom_go_btn ml-3">
                                             <font weight=normal size=5> Go </font>
                                         </button>
                                     </router-link>

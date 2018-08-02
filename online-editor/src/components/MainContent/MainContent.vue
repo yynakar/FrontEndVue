@@ -24,6 +24,11 @@ export default {
             alert('send id');
             bus.$emit('datasended',this.padID);
             alert('send id meta'); 
+       },
+       requestForNewID(){
+           //lets talk with back to let them know that we created a new pad so they generate a new id
+
+           //with existing methods of restservice.js, createPadRequest and loadPadRequest
        }
     }
 }

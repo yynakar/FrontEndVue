@@ -6,6 +6,8 @@
 <script>
 import newPad from '../newPad/newPad.vue'
 import users from '../users/index.vue'
+import {bus} from '../../main'
+
 
 export default {
     name:"edit",
@@ -20,6 +22,13 @@ export default {
             type: Number,
             default: 5
         }
+    },
+    mounted(){
+      bus.$on('datasended',(data) => {
+        alert('ela ti leeii mpika mounted data edit newpad');
+        alert(data);
+        this.padId = data;
+      })
     }
 }
 </script>

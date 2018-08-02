@@ -6,11 +6,15 @@
 import CONFIG from "../../config.json";
 import RestService from "../../services/RestService";
 import PollingService from "../../services/PollingService";
+import {bus} from '../../main'
+import EventBus from '../../event-bus';
+
 
 export default {
   name: "newPad",
   data: function() {
     return {
+
       // BUILT IN ENUM VALUES - all the kind of keyboard inputs we can have
       inputKindsEnum: {
         "STRING END": 1, // typed at the end of the text
@@ -28,7 +32,7 @@ export default {
       textArray: "",
       restService: new RestService(),
       pollingService: new PollingService(),
-      padId: " ",
+      padId: "",
       createPadResponse: null,
       idInput:" "
     };
@@ -354,18 +358,25 @@ export default {
         }
       );
     },
+    
     loadPad:function(){
       console.log("LOAD PAD CLICKED!");
       CONFIG.padId = this.idInput;
       this.restService.loadPadRequest(this.idInput)
+    }, 
+     mounted() {
+      //console.log(this.$refs);
+      //in order not to change ever again and act as a real enum
+      Object.freeze(this.inputKindsEnum);
+      console.log(CONFIG);
     }
   },
-  mounted() {
-    //console.log(this.$refs);
-
-    //in order not to change ever again and act as a real enum
-    Object.freeze(this.inputKindsEnum);
-    console.log(CONFIG);
-  }
+    created(){
+      bus.$on('datasended',(data) => {
+        alert('mpika mounted data newpad');
+        alert(data);
+        this.padId = data;
+      })
+    }
 };
 </script>

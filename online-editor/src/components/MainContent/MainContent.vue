@@ -8,6 +8,9 @@
 import newPad from '../newPad/newPad.vue'
 import navbar from '../navbar/navbar.vue'
 import users from '../users/index.vue'
+import {bus} from '../../main'
+import EventBus from '../../event-bus';
+
 
 export default {
     name:"MainContent",
@@ -16,6 +19,13 @@ export default {
             padID: ''
         }
     },
-    methods:{}
+    methods:{
+        sendID(){
+            alert('send id');
+            bus.$emit('datasended',this.padID);
+           // EventBus.$emit('datasended1', this.padID);       
+            alert('send id meta'); 
+       }
+    }
 }
 </script>

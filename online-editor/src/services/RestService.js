@@ -28,21 +28,22 @@ export default class RestService {
   modifyText(modInfo) {
 
     var date = this.ISODateString(new Date());
-    console.log(date);
+    modInfo.Req_date = date;
+    //console.log(date);
 
-    var json = {
-      "Req_date": date,
-      "Value": "alex",
-      "Start": 0,
-      "End": 0,
-      "Pad_ID": CONFIG.padId
-    };
+    // var json = {
+    //   "Req_date": date,
+    //   "Value": "alex",
+    //   "Start": 0,
+    //   "End": 0,
+    //   "Pad_ID": CONFIG.padId
+    // };
 
-    console.log("pad iddddddd "+CONFIG.padId);
+    //console.log("pad iddddddd "+CONFIG.padId);
     
-    console.log(json);
+    //console.log(json);
 
-    Vue.axios.put(this.ipAndPort() + "/Edit", json)
+    Vue.axios.put(this.ipAndPort() + "/Edit", modInfo)
       .then(function (response) {
         console.log(response);
       })

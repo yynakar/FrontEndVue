@@ -30,7 +30,7 @@ export default {
       pollingService: new PollingService(),
       padId: " ",
       createPadResponse: null,
-      idInput:" "
+      idInput: " "
     };
   },
   methods: {
@@ -57,7 +57,7 @@ export default {
     keyDownEvent: function(event) {
       //BE WARE! textcursor starts from 0
 
-      this.restService.modifyText();
+      //this.restService.modifyText();
       if (event.key === "Control") {
         this.ctrlKeyDown = true;
       }
@@ -136,21 +136,18 @@ export default {
 
     //**************LOGIC ************************** */
     handleEvent: function(info) {
-      //console.log("HANDLE");
-      // console.log(info);
-      //console.log(this.textIsSelected());
-
-      // console.log (this.inputKindsEnum["KEY PATTERN"] === this.kindOfInput());
-
-      //  if(this.kindOfInput() == this.inputKintdsEnum["KEY"] )
-
       switch (this.kindOfInput(info)) {
         case this.inputKindsEnum["STRING END"]:
-          if (info.type === "keyDownEvent") {
-            console.log("INSERT CHAR " + info.string + " AT THE END");
-          } else if ((info.type = "pasteEvent")) {
-            console.log("INSERT STRING " + info.string + " AT THE END");
-          }
+
+          var modInfo = {
+            Req_date: null,
+            Value: info.string,
+            Start: info.textCursor,
+            End: info.textCursor,
+            Pad_ID: CONFIG.padId
+          };
+
+          this.restService.modifyText(modInfo);
 
           break;
         case this.inputKindsEnum["STRING INSIDE"]:
@@ -346,7 +343,7 @@ export default {
       this.restService.createPadRequest().then(
         result => {
           CONFIG.padId = result.data.id;
-          console.log("PAD created with id: "+CONFIG.padId);
+          console.log("PAD created with id: " + CONFIG.padId);
           console.log(CONFIG);
         },
         function(err) {
@@ -354,10 +351,10 @@ export default {
         }
       );
     },
-    loadPad:function(){
+    loadPad: function() {
       console.log("LOAD PAD CLICKED!");
       CONFIG.padId = this.idInput;
-      this.restService.loadPadRequest(this.idInput)
+      this.restService.loadPadRequest(this.idInput);
     }
   },
   mounted() {
@@ -368,4 +365,88 @@ export default {
     console.log(CONFIG);
   }
 };
+
+// handleEvent: function(info) {
+//       switch (this.kindOfInput(info)) {
+//         case this.inputKindsEnum["STRING END"]:
+//           if (info.type === "keyDownEvent") {
+//             console.log("INSERT CHAR " + info.string + " AT THE END");
+//           } else if ((info.type = "pasteEvent")) {
+//             console.log("INSERT STRING " + info.string + " AT THE END");
+//           }
+
+//           break;
+//         case this.inputKindsEnum["STRING INSIDE"]:
+//           if (info.type === "keyDownEvent") {
+//             console.log(
+//               "INSERT CHAR " + info.string + " TO POSITIONS " + info.textCursor
+//             );
+//           } else if ((info.type = "pasteEvent")) {
+//             console.log(
+//               "INSERT STRING " +
+//                 info.string +
+//                 " TO POSITIONS " +
+//                 info.textCursor +
+//                 " TO " +
+//                 (info.string.length + info.textCursor - 1)
+//             );
+//           }
+//           break;
+//         case this.inputKindsEnum["ERASE END"]:
+//           if (this.textWasSelected) {
+//             console.log(
+//               "ERASE " +
+//                 (this.lastSelectionInfo.selectionEnd -
+//                   this.lastSelectionInfo.selectionStart) +
+//                 " CHARS FROM THE END"
+//             );
+//           } else {
+//             console.log("ERASE LAST CHAR ");
+//           }
+
+//           break;
+//         case this.inputKindsEnum["ERASE INSIDE"]:
+//           if (this.textWasSelected) {
+//             console.log(
+//               "ERASE STRING FROM POSITIONS " +
+//                 this.lastSelectionInfo.selectionStart +
+//                 " TO " +
+//                 (this.lastSelectionInfo.selectionEnd - 1)
+//             );
+//           } else {
+//             console.log("ERASE 1 CHAR  FROM POSITION " + (info.textCursor - 1));
+//           }
+//           break;
+//         case this.inputKindsEnum["REPLACE END"]:
+//           console.log("REPLACE END");
+
+//           console.log(
+//             "REMOVE " +
+//               (this.lastSelectionInfo.selectionEnd -
+//                 +this.lastSelectionInfo.selectionStart) +
+//               " CHARS FROM THE END AND REPLACE THEM WITH " +
+//               info.string
+//           );
+
+//           break;
+//         case this.inputKindsEnum["REPLACE INSIDE"]:
+//           console.log(
+//             "REMOVE " +
+//               (this.lastSelectionInfo.selectionEnd -
+//                 +this.lastSelectionInfo.selectionStart) +
+//               " CHARS FROM " +
+//               this.lastSelectionInfo.selectionStart +
+//               " TO " +
+//               (this.lastSelectionInfo.selectionEnd - 1) +
+//               " AND REPLACE THEM WITH " +
+//               info.string
+//           );
+//           break;
+//         case this.inputKindsEnum["KEY PATTERN"]:
+//           //console.log("KEY PATTERN");
+//           break;
+//         default:
+//           console.log("UNCAUGHT ENUMERATOR");
+//       }
+//     },
 </script>

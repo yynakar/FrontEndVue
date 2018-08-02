@@ -23,7 +23,6 @@ export default {
         sendID(){
             alert('send id');
             bus.$emit('datasended',this.padID);
-           // EventBus.$emit('datasended1', this.padID);       
             alert('send id meta'); 
        }
     }

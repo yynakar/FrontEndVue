@@ -4,6 +4,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import newPad from '../components/newPad/newPad.vue'
+
 Vue.use(VueAxios, axios)
 
 export default class RestService {

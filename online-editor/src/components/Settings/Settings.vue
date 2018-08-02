@@ -3,12 +3,22 @@
 
 
 <script>
+import {bus} from '../../main'
+
 export default {
     name:"Settings",
     data:function(){
         return {
-        }
+            padID:''
+        };
     },
-    methods:{}
+    methods:{},
+    created(){
+      bus.$on('datasended',(data) => {
+       this.padID = data;
+      })
+
+    }
+    
 }
 </script>

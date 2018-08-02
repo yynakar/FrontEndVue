@@ -10,7 +10,8 @@
     border-radius: 10px;
     text-align: center;
     box-align: center;
-    position: center;    
+    position: center;   
+    padding-bottom: 5%; 
 }
 .panel-transparent {
     background: blur(10px);

@@ -29,7 +29,6 @@ export default {
     },
     mounted(){
       bus.$on('datasended',(data) => {
-        alert('ela ti leeii mpika mounted data edit newpad');
         this.padId = data;
       }),
       bus.$on('settings-visibility-mainToEdit',(data)=>{

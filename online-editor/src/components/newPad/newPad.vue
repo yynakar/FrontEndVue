@@ -7,7 +7,7 @@ import CONFIG from "../../config.json";
 import RestService from "../../services/RestService";
 import PollingService from "../../services/PollingService";
 import {bus} from '../../main'
-import EventBus from '../../event-bus';
+//import EventBus from '../../event-bus';
 
 
 export default {
@@ -364,7 +364,7 @@ export default {
       CONFIG.padId = this.idInput;
       this.restService.loadPadRequest(this.idInput)
     }, 
-     mounted() {
+     mounted(){
       //console.log(this.$refs);
       //in order not to change ever again and act as a real enum
       Object.freeze(this.inputKindsEnum);
@@ -373,7 +373,7 @@ export default {
   },
     created(){
       bus.$on('datasended',(data) => {
-        alert('mpika mounted data newpad');
+        alert('enter created data newpad');
         alert(data);
         this.padId = data;
       })

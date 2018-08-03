@@ -12,7 +12,10 @@
     resize: none;
 }
 
-
+input{
+    border-radius: 5px;
+    color: #C8C8C8
+}
 /*style placeholder for all browsers*/
 
 textarea::-webkit-input-placeholder,

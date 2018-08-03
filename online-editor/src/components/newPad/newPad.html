@@ -1,8 +1,6 @@
-<div class="newPad col">
+<div class="newPad col input col-lg">
     <!--TODO:make sure its rensponsive-->
-    <textarea id="textArea" v-model="textArray" v-on:select="selectEvent" v-on:keydown="keyDownEvent" v-on:keyup="keyUpEvent" v-on:click="clickEvent" v-on:paste="pasteEvent" v-on:cut="cutEvent" v-on:blur="blurEvent" class="form-control rounded-0" placeholder="Start creating your document.."
-        rows="15">
-
+    <textarea class="form-control" rows="12" id="textArea" v-model="textArray" v-on:select="selectEvent" v-on:keydown="keyDownEvent" v-on:keyup="keyUpEvent" v-on:click="clickEvent" v-on:paste="pasteEvent" v-on:cut="cutEvent" v-on:blur="blurEvent"  placeholder="Start creating your document..">
     </textarea>
     <button v-on:click="createPad" >create new pad</button>
     <button  v-on:click="loadPad">load pad</button>

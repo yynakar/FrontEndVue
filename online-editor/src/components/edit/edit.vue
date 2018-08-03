@@ -25,7 +25,6 @@ export default {
     },
     mounted(){
       bus.$on('datasended',(data) => {
-        alert('ela ti leeii mpika mounted data edit newpad');
         alert(data);
         this.padId = data;
       })

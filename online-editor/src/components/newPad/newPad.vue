@@ -3,9 +3,9 @@
 
 
 <script>
-import CONFIG from "../../config.json";
-import RestService from "../../services/RestService";
-import PollingService from "../../services/PollingService";
+import CONFIG from "../../config.json"
+import RestService from "../../services/RestService"
+import PollingService from "../../services/PollingService"
 import {bus} from '../../main'
 //import EventBus from '../../event-bus';
 
@@ -34,7 +34,8 @@ export default {
       pollingService: new PollingService(),
       padId: "",
       createPadResponse: null,
-      idInput:" "
+      idInput:" ",
+      newpad_activated:" "
     };
   },
   methods: {
@@ -364,19 +365,20 @@ export default {
       CONFIG.padId = this.idInput;
       this.restService.loadPadRequest(this.idInput)
     }, 
-     mounted(){
-      //console.log(this.$refs);
-      //in order not to change ever again and act as a real enum
-      Object.freeze(this.inputKindsEnum);
-      console.log(CONFIG);
-    }
   },
-    created(){
-      bus.$on('datasended',(data) => {
-        alert('enter created data newpad');
-        alert(data);
-        this.padId = data;
-      })
-    }
+  mounted(){  
+    bus.$on('takeID1',(data1)=>{
+      this.newpad_activated = data1;
+      alert(data);
+      alert(this.newpad_activated);
+    }) 
+    //console.log(this.$refs);
+    //in order not to change ever again and act as a real enum
+    Object.freeze(this.inputKindsEnum);
+    console.log(CONFIG);
+  },
+  created(){
+  
+  }
 };
 </script>

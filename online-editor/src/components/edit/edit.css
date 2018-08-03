@@ -12,6 +12,7 @@
     border-radius: 5px;
     padding: 1%;
 }
+
 input{
     border-radius: 5px;
     color: #C8C8C8
@@ -85,4 +86,9 @@ input:-moz-placeholder {
 .thicker{
     font-weight: lighter;
     color: rgb(51, 51, 51);
+}
+.title{
+    font-weight: normal;
+    color:black;
+    font-size: 24px;
 }

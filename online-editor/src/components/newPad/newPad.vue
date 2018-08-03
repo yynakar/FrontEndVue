@@ -367,9 +367,8 @@ export default {
     }, 
   },
   mounted(){  
-    bus.$on('takeID1',(data1)=>{
-      this.newpad_activated = data1;
-      alert(data);
+    bus.$on('takeID1',(data)=>{
+      this.newpad_activated = data;
       alert(this.newpad_activated);
     }) 
     //console.log(this.$refs);

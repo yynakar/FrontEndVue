@@ -1,16 +1,10 @@
 <template  src="./MainContent.html" >
-    <router-view></router-view>
 </template>
 <style  src="./MainContent.css" scoped></style>
 
 
 <script>
-import newPad from '../newPad/newPad.vue'
-import navbar from '../navbar/navbar.vue'
-import users from '../users/index.vue'
 import {bus} from '../../main'
-import EventBus from '../../event-bus';
-
 
 export default {
     name:"MainContent",
@@ -27,7 +21,7 @@ export default {
        },
        requestForNewID(){
            //lets talk with back to let them know that we created a new pad so they generate a new id
-
+            alert("Button pressed yay");
            //with existing methods of restservice.js, createPadRequest and loadPadRequest
        }
     }

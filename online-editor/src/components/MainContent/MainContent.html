@@ -3,44 +3,44 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12"></div>
-                    <div class="col-lg-1 col-xs-1"></div>
-                    <div class="mt-2 col-lg-10  col-xs-1 panel panel-default panel-transparent ">
-                        <div class=" panel-body clear-20">                 
-                            <div class="col-12 col-6 col-3">
-                                <br>
-                                <h2>Welcome to Online Document Editor</h2>                     
-                            </div>
-                            <div class="col-12 col-6 col-3 clear-20">
-                                <font weight=normal size=5> Share and compose online  <br> documents with your team </font>                                
-                            </div>        
-                            <div class="clear-40 col-xs-3">
-                                <router-link to="/newPad"> 
-                                    <button type="button" @click="requestForNewID" class="btn custom_newPad_btn"> 
+                <div class="col-lg-1 col-xs-1"></div>
+                <div class="mt-2 col-lg-10  col-xs-1 panel panel-default panel-transparent ">
+                    <div class=" panel-body clear-20">
+                        <div class="col-12 col-6 col-3">
+                            <br>
+                            <h2>Welcome to Online Document Editor</h2>
+                        </div>
+                        <div class="col-12 col-6 col-3 clear-20">
+                            <font weight=normal size=5> Share and compose online <br> documents with your team </font>
+                        </div>
+                        <div class="clear-40 col-xs-3">
+                            <router-link to="/newPad">
+                                <button v-on:click="requestForNewID" type="button" class="btn custom_newPad_btn"> 
                                         <font weight=normal size=5> New Pad </font>                                       
                                     </button>
-                                </router-link>
-                            </div>  
-                            <div class="clear-20"></div>
-                            <div class="col-12 col-6 col-3 clear-10">
-                                <h4> or </h4>                   
-                            </div>      
-                            <div class="clear-20"></div>
-                            <form class="form-inline  justify-content-center">
-                                <div class="input"> 
-                                    <input type="text" v-model="padID" class=" form-control form-control-lg" id="inlineFormInput" placeholder="your pad ID">
-                                    <router-link to="/edit:id">
-                                        <button v-on:click="sendID" @keyup.enter="customRoute" type="button" class="btn custom_go_btn ml-3">
+                            </router-link>
+                        </div>
+                        <div class="clear-20"></div>
+                        <div class="col-12 col-6 col-3 clear-10">
+                            <h4> or </h4>
+                        </div>
+                        <div class="clear-20"></div>
+                        <form class="form-inline  justify-content-center">
+                            <div class="input">
+                                <input type="text" v-model="padID" class=" form-control form-control-lg" id="inlineFormInput" placeholder="your pad ID">
+                                <router-link to="/edit/:id">
+                                    <button v-on:click="sendID" @keyup.enter="customRoute" class="btn custom_go_btn ml-3">
                                             <font weight=normal size=5> Go </font>
                                         </button>
-                                    </router-link>
-                                </div>
+                                </router-link>
+                            </div>
 
-                            </form> 
-                            <div class="col-12 col-6 col-3 clear-50"> </div>
-                        </div>                          
+                        </form>
+                        <div class="col-12 col-6 col-3 clear-50"> </div>
                     </div>
+                </div>
                 <div class="col-lg-1 col-xs-1"></div>
-            </div>   
+            </div>
         </div>
     </div>
 </div>

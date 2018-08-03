@@ -7,7 +7,6 @@ import CONFIG from "../../config.json";
 import RestService from "../../services/RestService";
 import PollingService from "../../services/PollingService";
 import {bus} from '../../main'
-//import EventBus from '../../event-bus';
 
 
 export default {

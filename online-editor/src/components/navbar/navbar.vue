@@ -5,8 +5,17 @@
 <script>
 export default {
     name:"navbar",
-    methods:{   
-        
+    mounted(){
+        bus.$on('settings-visibility-editToNav',(data)=>{
+            alert("settings visibility is about to be changed in nav, before:"+this.visibility);
+            this.visibility=data;
+            alert("after:"+this.visibility+"(should be true");
+        })
+    },
+    data: function(){
+        return{
+            visibility:false
+        }
     }
 }
 </script>

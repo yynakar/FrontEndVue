@@ -11,24 +11,32 @@ import {bus} from '../../main'
 
 export default {
     name:"edit",
-  
     components: {
         'newPad':newPad,
         'users':users
     },
     /*Here will be placed the id we get from the backend*/
-    props: {
-        id: {
-            type: Number,
-            default: 5
+    data:function(){
+        return {
+            navbaRseTvisibility
         }
     },
     mounted(){
       bus.$on('datasended',(data) => {
         alert('ela ti leeii mpika mounted data edit newpad');
-        alert(data);
         this.padId = data;
+      }),
+      bus.$on('settings-visibility-mainToEdit',(data)=>{
+          alert("alert for settings-visibility-mainToEdit event");
+          this.navbaRseTvisibility=data;
+          alert("this should be true:"+navbaRseTvisibility);
       })
+    },
+    methods:{
+        makeSettingsVisible2(){
+            alert("Kalo to event 2 gia to settings");
+            bus.$emit('settings-visibility-editToNav',this.navbaRseTvisibility);
+        }
     }
 }
 </script>

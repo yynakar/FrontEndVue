@@ -6,16 +6,15 @@
 export default {
     name:"navbar",
     mounted(){
-        bus.$on('settings-visibility',(data)=>{
-            alert("settings visibility is about to be changed, before:"+this.visibility);
+        bus.$on('settings-visibility-editToNav',(data)=>{
+            alert("settings visibility is about to be changed in nav, before:"+this.visibility);
             this.visibility=data;
-            alert("after:"+this.visibility);
+            alert("after:"+this.visibility+"(should be true");
         })
     },
-    props: {
-        visibility: {
-            type: Boolean,
-            default: false
+    data: function(){
+        return{
+            visibility:false
         }
     }
 }

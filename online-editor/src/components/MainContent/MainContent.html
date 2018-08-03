@@ -29,7 +29,7 @@
                             <div class="input">
                                 <input type="text" v-model="padID" class=" form-control form-control-lg" id="inlineFormInput" placeholder="your pad ID">
                                 <router-link to="/edit/:id">
-                                    <button v-on:click="sendID" @keyup.enter="customRoute" class="btn custom_go_btn ml-3">
+                                    <button v-on:click="handler" @keyup.enter="customRoute" class="btn custom_go_btn ml-3">
                                             <font weight=normal size=5> Go </font>
                                         </button>
                                 </router-link>

@@ -15,28 +15,27 @@ export default {
         'newPad':newPad,
         'users':users
     },
-    /*Here will be placed the id we get from the backend
-    props: {
-        id: {
-            type: Number,
-            default: 5
-        }
-    },*/
+    /*Here will be placed the id we get from the backend*/
     data:function(){
         return {
-            seTvisibility: true
+            navbaRseTvisibility
         }
     },
     mounted(){
       bus.$on('datasended',(data) => {
         alert('ela ti leeii mpika mounted data edit newpad');
         this.padId = data;
+      }),
+      bus.$on('settings-visibility-mainToEdit',(data)=>{
+          alert("alert for settings-visibility-mainToEdit event");
+          this.navbaRseTvisibility=data;
+          alert("this should be true:"+navbaRseTvisibility);
       })
     },
     methods:{
-        makeSettingsVisible(){
-            alert("Kalo to event gia to settings");
-            bus.$emit('settings-visibility',this.seTvisibility);
+        makeSettingsVisible2(){
+            alert("Kalo to event 2 gia to settings");
+            bus.$emit('settings-visibility-editToNav',this.navbaRseTvisibility);
         }
     }
 }

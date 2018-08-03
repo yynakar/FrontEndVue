@@ -9,7 +9,7 @@ import newPad from '../newPad/newPad.vue'
 import navbar from '../navbar/navbar.vue'
 import users from '../users/index.vue'
 import {bus} from '../../main'
-import EventBus from '../../event-bus';
+//import EventBus from '../../event-bus';
 
 
 export default {
@@ -21,10 +21,16 @@ export default {
     },
     methods:{
         sendID(){
-            alert('send id');
+            alert('sendID called');
             bus.$emit('datasended',this.padID);
            // EventBus.$emit('datasended1', this.padID);       
-            alert('send id meta'); 
+            alert('sendID after data sending'); 
+       },
+       takeID(){
+           alert('takeID called');
+           //to-do
+           //na stelnete aithma sto server gia generat ID
+
        }
     }
 }

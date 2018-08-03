@@ -7,7 +7,6 @@ import CONFIG from "../../config.json"
 import RestService from "../../services/RestService"
 import PollingService from "../../services/PollingService"
 import {bus} from '../../main'
-//import EventBus from '../../event-bus';
 
 
 export default {
@@ -369,7 +368,6 @@ export default {
   mounted(){  
     bus.$on('takeID1',(data)=>{
       this.newpad_activated = data;
-      alert(this.newpad_activated);
     }) 
     //console.log(this.$refs);
     //in order not to change ever again and act as a real enum

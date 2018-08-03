@@ -1,33 +1,35 @@
-<!--TODO:make whole nav smaller-->
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="left">
-            <a class="row navbar-brand" id="logo" href="#">
-                <img src=./piclogo.png alt="Logo" class="navImage">
-                <img src=./Logo.png alt="LogoText" class="navImage">
-                <!--TODO:make Editor larger font
-                <span>Online
-                    <br>Document
-                    <br>Editor</span>-->
-            </a>
+            <router-link to="/">
+                <a class="row navbar-brand" id="logo" href="#">
+                    <img src=./piclogo.png alt="Logo" class="navImage">
+                    <img src=./Logo.png alt="LogoText" class="navImage">
+                </a>
+            </router-link>
         </div>
 
         <div class="right">
             <ul class="nav navbar-nav pull-right">
                 <div class="row no-gutter">
-                    <div class="col text-center col-md-6 visible">
+                    <div v-if="visibility==true"class="col text-center col-md-6 visible">
                         <li>
-                            <button>
-                                <a href="#">Settings</a>
-                            </button>
+                            <router-link to="/settings">
+                                <button>
+                                    <a href="#">Settings</a>
+                                </button>
+                            </router-link>
                         </li>
                     </div>
                     <!--TODO: float About button exactly to the right of the nav-->
                     <div class="col text-center col-md-6 float-md-right">
                         <li>
-                            <button>
-                                <a href="#">About</a>
-                            </button>
+                            <router-link to="/About">
+                                <!--When bus is ready, connect this to current path to about page (probably needs a function to do that-->
+                                <button>
+                                    <a href="#">About</a>
+                                </button>
+                            </router-link>
                         </li>
                     </div>
                 </div>

@@ -4,7 +4,6 @@ import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import newPad from '../components/newPad/newPad.vue'
-
 Vue.use(VueAxios, axios)
 
 export default class RestService {
@@ -29,21 +28,31 @@ export default class RestService {
   modifyText(modInfo) {
 
     var date = this.ISODateString(new Date());
-    console.log(date);
 
-    var json = {
-      "Req_date": date,
-      "Value": "alex",
-      "Start": 0,
-      "End": 0,
-      "Pad_ID": CONFIG.padId
-    };
+    //console.log(Date.now());
 
-    console.log("pad iddddddd "+CONFIG.padId);
+    modInfo.Req_date = Date.now()
+    //console.log(date);
+
+    // var json = {
+    //   "Req_date": date,
+    //   "Value": "alex",
+    //   "Start": 0,
+    //   "End": 0,
+    //   "Pad_ID": CONFIG.padId
+    // };
+
+    // var json  = {
+    //   "time": Date.now(),
+    //   "value" : modInfo.Value
+    // }
+
+    console.log(modInfo);
+
     
-    console.log(json);
+    //console.log(modInfo);
 
-    Vue.axios.put(this.ipAndPort() + "/Edit", json)
+    Vue.axios.post(this.ipAndPort() + "/Edit", modInfo)
       .then(function (response) {
         console.log(response);
       })
@@ -55,7 +64,7 @@ export default class RestService {
 
   //returns a promise. it's handled at the caller
   createPadRequest() {
-      return Vue.axios.post(this.ipAndPort() + "/NewPad");
+      return Vue.axios.post(this.ipAndPort() + "/NeewPad");
   }
 
   loadPadRequest(padId) {
@@ -74,7 +83,13 @@ export default class RestService {
   }
 
   checkForChange(){
-    console.log("check for change called!");
+    //console.log("check for change called!");
+    //window.app.$refs.pad.reFtest();
+      //console.log(window.app.$refs);
+
+     // newPad.reloadText();
+
+
   }
 
   getAllTheText() {

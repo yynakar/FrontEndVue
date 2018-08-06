@@ -366,8 +366,12 @@ export default {
     }, 
   },
   mounted(){  
-    bus.$on('takeID1',(data)=>{
-      this.newpad_activated = data;
+    bus.$on('takeID1_test',(data)=>{
+      //this.newpad_activated = data;
+      if(data){
+        alert("eskaseee to mouse event");
+        this.createPad();
+      }
     }) 
     //console.log(this.$refs);
     //in order not to change ever again and act as a real enum

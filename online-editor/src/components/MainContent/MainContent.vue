@@ -27,6 +27,10 @@ export default {
         takeID(){
             bus.$emit('takeID1',this.flag);
         },
+        takeID_test(){
+            bus.$emit('takeID1_test',event);
+           
+        },
         makeSettingsVisible() {
             //alert("Kalo to event gia to settings ap t main");
             bus.$emit("settings-visibility-mainToEdit", this.navbaRseTvisibility);

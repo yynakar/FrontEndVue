@@ -1,18 +1,35 @@
 <!--Be sure of the alignment-->
-<div class="MainContent col-lg col-centered">
-    <div class="title row row-centered">
-        <!--Insert new title/ Display existing title-->
-        <form class="row-centered">
-            <input id="titl" type="text" placeholder="Enter Title">
-        </form>
+<div class="MainContent container-fluid">
+    <div class="title my-1">Existing Title </div>
+    <newPad></newPad>
+    <div class="panel panel-default my-3 col-5 mx-auto">
+        <div class="usersDots mx-3 my-3">
+            <span v-b-tooltip.hover title="IP: 162.657.92">
+                    <p class="mt-2"> 1 </p>
+                </span>
+            <div class="editing font-italic thicker mr-3"> editing</div>
+        </div>
+
+        <div class="usersDots mx-3 my-3">
+            <span v-b-tooltip.hover title="IP: 162.657.92">
+                    <p class="mt-2"> 2 </p>
+                </span>
+            <div class="editing font-italic thicker mr-3"> editing</div>
+        </div>
+
+        <div class="usersDots mx-3 my-3">
+            <span v-b-tooltip.hover title="IP: 162.657.92">
+                    <p class="mt-2"> 3 </p>
+                </span>
+            <div class="editing font-italic thicker mr-3"> editing</div>
+        </div>
+
+        <div class="usersDots mx-3 my-3">
+            <span v-b-tooltip.hover title="IP: 162.657.92">
+                    <p class="mt-2"> 4 </p>
+                </span>
+            <div class="editing font-italic thicker mr-3"> editing</div>
+        </div>
+
     </div>
-    <br>
-    <br>
-    <div class="newpad col col-centered">
-        <!--Main pad-->
-        <newPad ref="pad" ></newPad>
-    </div>
-    <!--<div class="row-md row-centered">
-        <users></users>
-    </div>-->
 </div>

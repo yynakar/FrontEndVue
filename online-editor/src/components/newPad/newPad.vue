@@ -3,9 +3,11 @@
 
 
 <script>
-import CONFIG from "../../config.json";
-import RestService from "../../services/RestService";
-import PollingService from "../../services/PollingService";
+import CONFIG from "../../config.json"
+import RestService from "../../services/RestService"
+import PollingService from "../../services/PollingService"
+import {bus} from '../../main'
+
 
 export default {
   name: "newPad",
@@ -30,7 +32,8 @@ export default {
       pollingService: new PollingService(),
       padId: " ",
       createPadResponse: null,
-      idInput: " "
+      idInput:" ",
+      newpad_activated:" "
     };
   },
   methods: {
@@ -362,11 +365,18 @@ export default {
   },
   mounted() {
     //console.log(this.$refs);
+     bus.$on('takeID1',(data)=>{
+      this.newpad_activated = data;
+    }) 
+    //console.log(this.$refs);
+    //in order not to change ever again and act as a real enum
 
     //in order not to change ever again and act as a real enum
     Object.freeze(this.inputKindsEnum);
     console.log("REFSSSSSS");
     console.log(this.$refs);
+      this.restService.loadPadRequest(this.idInput)
+    
   }
 };
 

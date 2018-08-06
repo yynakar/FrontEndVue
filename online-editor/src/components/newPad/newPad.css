@@ -2,17 +2,11 @@
     border-color: #0f2e4e;
 }
 
-#textArea {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 100%;
-    min-height: 75px;
-    outline: none;
-    resize: none;
+
+input{
+    border-radius: 5px;
+    color: #C8C8C8
 }
-
-
 /*style placeholder for all browsers*/
 
 textarea::-webkit-input-placeholder,

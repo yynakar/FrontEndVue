@@ -42,17 +42,17 @@ export default class RestService {
     //   "Pad_ID": CONFIG.padId
     // };
 
-    var json  = {
-      "time": Date.now(),
-      "value" : modInfo.Value
-    }
+    // var json  = {
+    //   "time": Date.now(),
+    //   "value" : modInfo.Value
+    // }
 
-    console.log(json);
+    console.log(modInfo);
 
     
     //console.log(modInfo);
 
-    Vue.axios.post(this.ipAndPort() + "/time", json)
+    Vue.axios.post(this.ipAndPort() + "/Edit", modInfo)
       .then(function (response) {
         console.log(response);
       })
@@ -64,7 +64,7 @@ export default class RestService {
 
   //returns a promise. it's handled at the caller
   createPadRequest() {
-      return Vue.axios.post(this.ipAndPort() + "/NewPad");
+      return Vue.axios.post(this.ipAndPort() + "/NeewPad");
   }
 
   loadPadRequest(padId) {

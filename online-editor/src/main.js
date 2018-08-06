@@ -14,6 +14,21 @@ Vue.config.productionTip = false
 
 Vue.config.productionTip = false;
 
+export const bus = new Vue();
+
+Vue.prototype.$globals = new Vue({
+    data(){
+      return {
+        test:''
+      }
+    },
+    methods: {
+        globalMethodTest(){
+            console.log("global method called!!");
+        }
+    }
+  })
+
 var app= new Vue({
     router,
     render: h => h(App)

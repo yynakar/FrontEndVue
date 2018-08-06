@@ -355,6 +355,9 @@ export default {
       console.log("LOAD PAD CLICKED!");
       CONFIG.padId = this.idInput;
       this.restService.loadPadRequest(this.idInput);
+    },
+    refTest: function(){
+      console.log("REFTEEEEEEEEEEEEEEST");
     }
   },
   mounted() {
@@ -362,7 +365,8 @@ export default {
 
     //in order not to change ever again and act as a real enum
     Object.freeze(this.inputKindsEnum);
-    console.log(CONFIG);
+    console.log("REFSSSSSS");
+    console.log(this.$refs);
   }
 };
 

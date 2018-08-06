@@ -28,6 +28,9 @@ export default class RestService {
   modifyText(modInfo) {
 
     var date = this.ISODateString(new Date());
+
+    console.log(Date.now());
+
     modInfo.Req_date = date;
     //console.log(date);
 
@@ -41,7 +44,7 @@ export default class RestService {
 
     //console.log("pad iddddddd "+CONFIG.padId);
     
-    //console.log(json);
+    console.log(modInfo);
 
     Vue.axios.put(this.ipAndPort() + "/Edit", modInfo)
       .then(function (response) {
@@ -74,7 +77,13 @@ export default class RestService {
   }
 
   checkForChange(){
-    console.log("check for change called!");
+    //console.log("check for change called!");
+    //window.app.$refs.pad.reFtest();
+      //console.log(window.app.$refs);
+
+     // newPad.reloadText();
+
+
   }
 
   getAllTheText() {

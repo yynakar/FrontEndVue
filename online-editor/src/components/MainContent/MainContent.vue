@@ -32,7 +32,6 @@ export default {
             bus.$emit("settings-visibility-mainToEdit", this.navbaRseTvisibility);
         },
         handler() {
-            alert("methods handler is on, two methods are about to be executed:sendID and makeSettingsVisible");
             this.sendID();
             this.makeSettingsVisible();
         }

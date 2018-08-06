@@ -2,7 +2,6 @@
 </template>
 <style  src="./MainContent.css" scoped></style>
 
-
 <script>
 import newPad from '../newPad/newPad.vue'
 import navbar from '../navbar/navbar.vue'

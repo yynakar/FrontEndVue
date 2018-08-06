@@ -29,9 +29,9 @@ export default class RestService {
 
     var date = this.ISODateString(new Date());
 
-    console.log(Date.now());
+    //console.log(Date.now());
 
-    modInfo.Req_date = date;
+    modInfo.Req_date = Date.now()
     //console.log(date);
 
     // var json = {
@@ -42,11 +42,17 @@ export default class RestService {
     //   "Pad_ID": CONFIG.padId
     // };
 
-    //console.log("pad iddddddd "+CONFIG.padId);
-    
-    console.log(modInfo);
+    var json  = {
+      "time": Date.now(),
+      "value" : modInfo.Value
+    }
 
-    Vue.axios.put(this.ipAndPort() + "/Edit", modInfo)
+    console.log(json);
+
+    
+    //console.log(modInfo);
+
+    Vue.axios.post(this.ipAndPort() + "/time", json)
       .then(function (response) {
         console.log(response);
       })

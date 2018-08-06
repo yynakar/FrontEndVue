@@ -19,6 +19,9 @@ export default {
       return {
         visibility: false
       }
+  },
+  methods:{
+    
   }
 };
 </script>

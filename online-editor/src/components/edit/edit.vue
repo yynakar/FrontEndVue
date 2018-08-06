@@ -15,7 +15,6 @@ export default {
     newPad: newPad,
     users: users
   },
-  /*Here will be placed the id we get from the backend*/
   data: function() {
     return {
       navbaRseTvisibility: true
@@ -23,27 +22,26 @@ export default {
   },
   methods: {
     makeSettingsVisible2() {
-      //alert("Kalo to event 2 gia to settings");
       bus.$emit("settings-visibility-editToNav", this.navbaRseTvisibility);
     },
-    /*makeSettingsInvisible() {
-      alert("invi 1");
-      bus.$emit("set-invi-editToNavBar", false);
-      bus.$emit("set-invi-editToNewPadPage", false);
-      bus.$emit("set-invi-editToAbout", false);
-      bus.$emit("set-invi-editToSettings", false);
-  }*/
+    makeSettingsInvisible() {
+      if (this.navbaRseTvisibility == true) {
+        this.navbaRseTvisibility = false;
+      }
+      bus.$emit("set-invi-editToNavBar", this.navbaRseTvisibility);
+    }
   },
   mounted() {
     bus.$on("datasended", data => {
       this.padId = data;
     }),
       bus.$on("settings-visibility-mainToEdit", data => {
-        //alert("alert for settings-visibility-mainToEdit. currently navbarsetvisi is:"+this.navbaRseTvisibility);
         this.navbaRseTvisibility = data;
-        //alert("this should be true now:"+navbaRseTvisibility);
       }),
       this.makeSettingsVisible2(); //calling the makeSettingsVisible2 when edit component is loaded
+  },
+  beforeDestroy() {
+    this.makeSettingsInvisible();
   }
 };
 </script>

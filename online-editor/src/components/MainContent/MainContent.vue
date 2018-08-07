@@ -11,14 +11,13 @@ export default {
     name:"MainContent",
     data:function(){
         return {
-            padID: '',
-            flag:'1',
+            padID: this.$route.params.padID,
             navbaRseTvisibility: true
         }
     },
     methods:{
         sendID(){
-            bus.$emit('datasended',this.padID)
+            bus.$emit('datasended',this.padID);
         },
         takeID(){
             bus.$emit('takeID1',this.flag);

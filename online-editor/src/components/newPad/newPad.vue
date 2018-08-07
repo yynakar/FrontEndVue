@@ -380,7 +380,8 @@ export default {
     console.log(this.$refs);
       this.restService.loadPadRequest(this.idInput)
     
-  }
+  },
+
 };
 
 // handleEvent: function(info) {

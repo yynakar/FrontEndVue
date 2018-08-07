@@ -13,7 +13,8 @@ export default {
         return {
             padID: '',
             flag:'1',
-            navbaRseTvisibility: true
+            navbaRseTvisibility: true,
+            errorDisplay:false
         }
     },
     methods:{
@@ -25,15 +26,17 @@ export default {
         },
         takeID_test(){
             bus.$emit('takeID1_test',event);
-           
         },
         makeSettingsVisible() {
-            alert("Kalo to event gia to settings ap t main");
             bus.$emit("settings-visibility-mainToEdit", this.navbaRseTvisibility);
         },
         handler() {
             this.sendID();
             this.makeSettingsVisible();
+        },
+        checkIDinput(){
+            this.errorDisplay=true;
+
         }
     }   
 

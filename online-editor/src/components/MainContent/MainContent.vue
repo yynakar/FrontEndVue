@@ -19,7 +19,7 @@ export default {
     //     bus.$emit('datasended',this.padID);
     // },
     makeSettingsVisible() {
-      alert("Kalo to event gia to settings ap t main");
+     // alert("Kalo to event gia to settings ap t main");
       bus.$emit("settings-visibility-mainToEdit", this.navbaRseTvisibility);
     },
     handler() {

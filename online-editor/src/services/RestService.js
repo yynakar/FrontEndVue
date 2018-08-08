@@ -32,6 +32,7 @@ export default class RestService {
     modInfo.Req_date = Date.now()
 
     console.log(modInfo);
+    
 
     Vue.axios.put(this.ipAndPort() + "/Edit", modInfo)
       .then(function (response) {

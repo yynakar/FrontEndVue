@@ -10,7 +10,7 @@ import { bus } from "../../main";
 
 export default {
   name: "newPad",
-  props: ['id'],
+  props: ["id"],
   data: function() {
     return {
       // BUILT IN ENUM VALUES - all the kind of keyboard inputs we can have
@@ -157,7 +157,7 @@ export default {
             Req_date: null,
             Value: info.string,
             Start: info.textCursor,
-            End: (info.string.length + info.textCursor - 1),
+            End: info.string.length + info.textCursor - 1,
             Pad_ID: CONFIG.padId
           };
 
@@ -371,10 +371,10 @@ export default {
         }
       );
     },
-    loadPad: function() {
+    loadPad: function(id) {
       console.log("LOAD PAD CLICKED!");
       CONFIG.padId = this.idInput;
-      this.restService.loadPadRequest(this.idInput).then(
+      this.restService.loadPadRequest(id).then(
         result => {
           console.log("twraaaaaa");
           console.log(result);
@@ -391,22 +391,20 @@ export default {
     }
   },
   mounted() {
-    console.log("to id einai "+this.padId);
+    console.log("to id einai " + this.padId);
     //console.log(this.$refs);
     //in order not to change ever again and act as a real enum
 
     //in order not to change ever again and act as a real enum
     Object.freeze(this.inputKindsEnum);
-  },
-  beforeCreate() {
-    console.log("before create called!");
 
-    bus.$on("takeID1", data => {
-      //this.newpad_activated = data
-      if (data) {
-        this.createPad();
-      }
-    });
+    console.log(this.$route.params);
+
+    if(this.$route.params.create === "create"){
+      this.createPad();
+    }else{
+      this.loadPad(this.$route.params.padID);
+    }
   }
 };
 

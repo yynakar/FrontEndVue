@@ -5,6 +5,8 @@ import newPadPage from './components/newPadPage/newPadPage.vue'
 import edit from './components/edit/edit.vue'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import {bus} from './main'
+
 
 Vue.use(VueRouter);
 
@@ -35,7 +37,7 @@ export default new VueRouter({
         { /*ID stands for current editor of the document  /:id*/
             path: '/edit/:padID',
             component: edit,
-            props: true,
+            props: true
         },
         {
             path: '/edit/:id/about',

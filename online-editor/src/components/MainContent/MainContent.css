@@ -46,10 +46,16 @@ h4{
     font: bold; 
     width: 300px !important;
 }
+custom_newPad_btn:hover{
+    background-color: rgb(30, 83, 139);
+}
 .custom_go_btn{
     background-color: #2368B1;
     color: white;
     font: bold; 
+}
+.custom_go_btn:hover{
+    background-color: rgb(30, 83, 139);
 }
 .inlineFormInput{
     border-radius: 10px;

@@ -55,7 +55,7 @@ export default class RestService {
 
   loadPadRequest(padId) {
 
-    console.log("load pad request called with id: "+padId);
+    console.log("load pad request called with id:"  + padId);
 
     return Vue.axios.get(this.ipAndPort() + "/LoadPad/"+padId);
 

@@ -4,6 +4,7 @@
 
 <script>
 import { bus } from "../../main";
+import {store} from '../../store/store'
 
 export default {
   name: "MainContent",

@@ -11,12 +11,13 @@
                             <h2>Welcome to Online Document Editor</h2>
                         </div>
                         <div class="col-12 col-6 col-3 clear-20">
-                            <font weight=normal size=5> Share and compose online <br> documents with your team </font>
+                            <font weight=normal size=5> Share and compose online
+                                <br> documents with your team </font>
                         </div>
                         <div class="clear-40 col-xs-3">
-                            <router-link to="/newPad">
-                                <button v-on:click="takeID_test($event)" type="button" class="btn custom_newPad_btn"> 
-                                        <font weight=normal size=5> New Pad </font>                                       
+                            <router-link v-bind:to="'newpad/' + create ">
+                                <button type="button" class="btn custom_newPad_btn">
+                                    <font weight=normal size=5> New Pad </font>
                                 </button>
                             </router-link>
                         </div>
@@ -28,15 +29,15 @@
                         <form class="form-inline  justify-content-center">
                             <div class="input">
                                 <input type="text" v-model="padID" class=" form-control form-control-lg" id="inlineFormInput" placeholder="your pad ID">
-                                
-                               <!-- <router-link to="/edit/">
+
+                                <!-- <router-link to="/edit/">
                                     <button v-on:click="handler" class="btn custom_go_btn ml-3">
                                             <font weight=normal size=5> Go </font>
                                     </button>
                                 </router-link> -->
                                 <router-link v-bind:to=" 'edit/' + padID ">
                                     <button v-on:click="handler" class="btn custom_go_btn ml-3">
-                                            <font weight=normal size=5> Go </font>
+                                        <font weight=normal size=5> Go </font>
                                     </button>
                                 </router-link>
                             </div>

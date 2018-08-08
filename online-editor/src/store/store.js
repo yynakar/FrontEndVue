@@ -5,7 +5,14 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state:{
-        temp:'vuex'
+        temp:'vuex',
+        users:[
+            {name: '' , retitle: '' },
+            {name: '' , retitle: '' },
+            {name: '' , retitle: '' },
+            {name: '' , retitle: '' }
+        ]
+        
     }
 });
 

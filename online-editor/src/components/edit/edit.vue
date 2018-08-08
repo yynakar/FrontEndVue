@@ -34,19 +34,15 @@ export default {
       }
       bus.$emit("set-invi-editToNavBar", this.navbaRseTvisibility);
     },
-    loadPad() {
-      console.log("LOAD PAD CLICKED! AIMILIOS");
-      //CONFIG.padId = this.idInput; 
-      CONFIG.padId = this.padId;       //aimilios
-      console.log("config aimilios" + CONFIG.padId);
-      this.restService.loadPadRequest(CONFIG.padId);
-    }
   },
   mounted() {
+<<<<<<< HEAD
     bus.$on("datasended", data => {
       this.padId = data;
       this.loadPad();
     }),
+=======
+>>>>>>> 153ab4c261a40c17b366b93e942e0e8d4b6145dc
     bus.$on("settings-visibility-mainToEdit", data => {
       this.navbaRseTvisibility = data;
     }),

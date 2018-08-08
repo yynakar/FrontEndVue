@@ -36,13 +36,6 @@ export default {
     },
   },
   mounted() {
-<<<<<<< HEAD
-    bus.$on("datasended", data => {
-      this.padId = data;
-      this.loadPad();
-    }),
-=======
->>>>>>> 153ab4c261a40c17b366b93e942e0e8d4b6145dc
     bus.$on("settings-visibility-mainToEdit", data => {
       this.navbaRseTvisibility = data;
     }),

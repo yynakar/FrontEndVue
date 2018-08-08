@@ -24,9 +24,9 @@ export default new VueRouter({
             component: Settings
         },
         {
-            path: '/newpad',
-            name: 'newPad',
+            path: '/newpad/:create',
             component: newPadPage,
+            props: true
             /*TODO:newpad component will be here*/
         },
         {
@@ -34,7 +34,7 @@ export default new VueRouter({
             component: AboutPage
         },
         { /*ID stands for current editor of the document  /:id*/
-            path: '/edit/:id',
+            path: '/edit/:padID',
             component: edit,
             props: true
         },

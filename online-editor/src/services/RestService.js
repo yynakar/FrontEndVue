@@ -32,27 +32,13 @@ export default class RestService {
     //console.log(Date.now());
 
     modInfo.Req_date = Date.now()
-    //console.log(date);
-
-    // var json = {
-    //   "Req_date": date,
-    //   "Value": "alex",
-    //   "Start": 0,
-    //   "End": 0,
-    //   "Pad_ID": CONFIG.padId
-    // };
-
-    // var json  = {
-    //   "time": Date.now(),
-    //   "value" : modInfo.Value
-    // }
 
     console.log(modInfo);
 
     
     //console.log(modInfo);
 
-    Vue.axios.post(this.ipAndPort() + "/Edit", modInfo)
+    Vue.axios.put(this.ipAndPort() + "/Edit", modInfo)
       .then(function (response) {
         console.log(response);
       })
@@ -64,6 +50,7 @@ export default class RestService {
 
   //returns a promise. it's handled at the caller
   createPadRequest() {
+    console.log("create pad request called ");
       return Vue.axios.post(this.ipAndPort() + "/NewPad");
   }
 
@@ -71,14 +58,7 @@ export default class RestService {
 
     console.log("load pad request called with id:"  + padId);
 
-    Vue.axios.get(this.ipAndPort() + "/LoadPad/"+padId)
-      .then(function (response) {
-        console.log("LOAD PAAAD");
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    return Vue.axios.get(this.ipAndPort() + "/LoadPad/"+padId);
 
   }
 

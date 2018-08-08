@@ -13,7 +13,6 @@ export default class RestService {
     this.port = CONFIG.serverPort;
     this.padId = null;
     var data = newPad.$data;
-    console.log(data);
   }
 
   setPadID(id) {
@@ -32,7 +31,7 @@ export default class RestService {
     modInfo.Req_date = Date.now()
 
     console.log(modInfo);
-    
+
 
     Vue.axios.put(this.ipAndPort() + "/Edit", modInfo)
       .then(function (response) {
@@ -46,12 +45,12 @@ export default class RestService {
 
   //returns a promise. it's handled at the caller
   createPadRequest() {
-    console.log("create pad request called ");
+    //console.log("create pad request called ");
     return Vue.axios.post(this.ipAndPort() + "/NewPad");
   }
 
   loadPadRequest(padId) {
-    console.log("load pad request called with id:" + padId);
+    //console.log("load pad request called with id:" + padId);
     return Vue.axios.get(this.ipAndPort() + "/LoadPad/" + padId);
   }
 

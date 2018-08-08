@@ -10,7 +10,7 @@ import PollingService from "../../services/PollingService";
 //Methods Importing
 import keyboardEventCatcher from "./methods/keyboardEventCatcher.js";
 import keyboardEventHandler from "./methods/keyboardEventHandler.js";
-import fileHandler from "./methods/fileHandler.js";
+import padHandler from "./methods/padHandler.js";
 
 export default {
   name: "newPad",
@@ -44,7 +44,7 @@ export default {
     //using object rest spread operator
     ...keyboardEventCatcher,
     ...keyboardEventHandler,
-    ...fileHandler
+    ...padHandler
   },
   mounted() {
     //In order not to change ever again and act as a real enum

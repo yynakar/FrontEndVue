@@ -23,6 +23,18 @@ form {
     outline: none;
     resize: none;
 }
+.btn{
+    background-color: rgba(41, 126, 216, 0.548);
+    color: white;
+    text-align: center;
+    font: normal; 
+    border-radius: 5px;
+    width: 130px !important;
+}
+.btn:hover{
+    background-color: #2368B1;
+
+}
 
 /*style placeholder for all browsers*/
 input::-webkit-input-placeholder,

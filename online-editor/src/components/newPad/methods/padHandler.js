@@ -14,13 +14,11 @@ export default {
         );
     },
     loadPad: function (id) {
-        console.log("LOAD PAD CLICKED!");
+        console.log("Pad loaded with id: "+id);
         CONFIG.padId = this.idInput;
         this.restService.loadPadRequest(id).then(
             result => {
-                console.log("twraaaaaa");
                 console.log(result);
-
                 this.textArray = result.data.value;
             },
             function (err) {

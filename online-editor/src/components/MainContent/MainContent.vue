@@ -23,8 +23,7 @@ export default {
             bus.$emit('takeID1',this.flag);
         },
         takeID_test(){
-            bus.$emit('takeID1_test',event);
-           
+            bus.$emit('takeID1_test',event);      
         },
         makeSettingsVisible() {
             alert("Kalo to event gia to settings ap t main");

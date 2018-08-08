@@ -5,6 +5,9 @@
 
 
 <script>
+import CONFIG from "../../config.json"
+import RestService from "../../services/RestService"
+import PollingService from "../../services/PollingService"
 import newPad from "../newPad/newPad.vue";
 import users from "../users/index.vue";
 import { bus } from "../../main";
@@ -42,7 +45,7 @@ export default {
   mounted() {
     bus.$on("datasended", data => {
       this.padId = data;
-      //alert(this.padId);
+      alert(this.padId);
       this.loadPad();
     }),
     bus.$on("settings-visibility-mainToEdit", data => {

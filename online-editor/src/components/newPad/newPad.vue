@@ -3,14 +3,14 @@
 
 
 <script>
-import CONFIG from "../../config.json"
-import RestService from "../../services/RestService"
-import PollingService from "../../services/PollingService"
-import {bus} from '../../main'
-
+import CONFIG from "../../config.json";
+import RestService from "../../services/RestService";
+import PollingService from "../../services/PollingService";
+import { bus } from "../../main";
 
 export default {
   name: "newPad",
+  props: ['id'],
   data: function() {
     return {
       // BUILT IN ENUM VALUES - all the kind of keyboard inputs we can have
@@ -32,8 +32,8 @@ export default {
       pollingService: new PollingService(),
       padId: " ",
       createPadResponse: null,
-      idInput:" ",
-      newpad_activated:" "
+      idInput: " ",
+      newpad_activated: " "
     };
   },
   methods: {
@@ -141,7 +141,6 @@ export default {
     handleEvent: function(info) {
       switch (this.kindOfInput(info)) {
         case this.inputKindsEnum["STRING END"]:
-
           var modInfo = {
             Req_date: null,
             Value: info.string,
@@ -154,20 +153,30 @@ export default {
 
           break;
         case this.inputKindsEnum["STRING INSIDE"]:
-          if (info.type === "keyDownEvent") {
-            console.log(
-              "INSERT CHAR " + info.string + " TO POSITIONS " + info.textCursor
-            );
-          } else if ((info.type = "pasteEvent")) {
-            console.log(
-              "INSERT STRING " +
-                info.string +
-                " TO POSITIONS " +
-                info.textCursor +
-                " TO " +
-                (info.string.length + info.textCursor - 1)
-            );
-          }
+          var modInfo = {
+            Req_date: null,
+            Value: info.string,
+            Start: info.textCursor,
+            End: (info.string.length + info.textCursor - 1),
+            Pad_ID: CONFIG.padId
+          };
+
+          this.restService.modifyText(modInfo);
+
+          // if (info.type === "keyDownEvent") {
+          //   console.log(
+          //     "INSERT CHAR " + info.string + " TO POSITIONS " + info.textCursor
+          //   );
+          // } else if ((info.type = "pasteEvent")) {
+          //   console.log(
+          //     "INSERT STRING " +
+          //       info.string +
+          //       " TO POSITIONS " +
+          //       info.textCursor +
+          //       " TO " +
+          //       (info.string.length + info.textCursor - 1)
+          //   );
+          // }
           break;
         case this.inputKindsEnum["ERASE END"]:
           if (this.textWasSelected) {
@@ -178,7 +187,16 @@ export default {
                 " CHARS FROM THE END"
             );
           } else {
-            console.log("ERASE LAST CHAR ");
+            //console.log("ERASE LAST CHAR ");
+            var modInfo = {
+              Req_date: Date.now(),
+              Value: "",
+              Start: info.textCursor - 1,
+              End: info.textCursor,
+              Pad_ID: CONFIG.padId
+            };
+
+            this.restService.modifyText(modInfo);
           }
 
           break;
@@ -347,7 +365,6 @@ export default {
         result => {
           CONFIG.padId = result.data.id;
           console.log("PAD created with id: " + CONFIG.padId);
-          console.log(CONFIG);
         },
         function(err) {
           console.log("Error: Could not create pad");
@@ -357,29 +374,39 @@ export default {
     loadPad: function() {
       console.log("LOAD PAD CLICKED!");
       CONFIG.padId = this.idInput;
-      this.restService.loadPadRequest(this.idInput);
+      this.restService.loadPadRequest(this.idInput).then(
+        result => {
+          console.log("twraaaaaa");
+          console.log(result);
+
+          this.textArray = result.data.value;
+        },
+        function(err) {
+          console.log("Error: Could not load pad");
+        }
+      );
     },
-    refTest: function(){
+    refTest: function() {
       console.log("REFTEEEEEEEEEEEEEEST");
     }
   },
-  mounted(){  
-    bus.$on('takeID1_test',(data)=>{
-      //this.newpad_activated = data;
-      if(data){
-        alert("eskaseee to mouse event");
-        this.createPad();
-      }
-    }) 
+  mounted() {
+    console.log("to id einai "+this.padId);
     //console.log(this.$refs);
     //in order not to change ever again and act as a real enum
 
     //in order not to change ever again and act as a real enum
     Object.freeze(this.inputKindsEnum);
-    console.log("REFSSSSSS");
-    console.log(this.$refs);
-      this.restService.loadPadRequest(this.idInput)
-    
+  },
+  beforeCreate() {
+    console.log("before create called!");
+
+    bus.$on("takeID1", data => {
+      //this.newpad_activated = data
+      if (data) {
+        this.createPad();
+      }
+    });
   }
 };
 

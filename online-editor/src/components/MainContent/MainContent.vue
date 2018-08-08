@@ -24,11 +24,7 @@ export default {
             bus.$emit('datasended',this.padID)
         },
         takeID(){
-            bus.$emit('takeID1',this.flag);
-        },
-        takeID_test(){
-            bus.$emit('takeID1_test',event);
-           
+            bus.$emit('takeID1',event);
         },
         makeSettingsVisible() {
             //alert("Kalo to event gia to settings ap t main");

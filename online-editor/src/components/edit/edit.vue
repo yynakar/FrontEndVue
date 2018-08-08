@@ -45,7 +45,6 @@ export default {
   mounted() {
     bus.$on("datasended", data => {
       this.padId = data;
-      alert(this.padId);
       this.loadPad();
     }),
     bus.$on("settings-visibility-mainToEdit", data => {

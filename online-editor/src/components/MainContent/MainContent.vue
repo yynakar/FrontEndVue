@@ -4,6 +4,7 @@
 
 <script>
 import {bus} from '../../main'
+import {store} from '../../store/store'
 
 
 
@@ -11,9 +12,10 @@ export default {
     name:"MainContent",
     data:function(){
         return {
-            padID: this.$route.params.padID,
+            padID: '',
             navbaRseTvisibility: true,
-            create:"create"
+            create:"create",
+           // temp:''
         }
     },
     methods:{
@@ -27,7 +29,12 @@ export default {
             // this.sendID();
             this.makeSettingsVisible();
         }
-    }   
+    },
+    computed:{
+         count(){
+             return this.$store.state.temp;
+         }
+    },
 
 };
 </script>

@@ -12,22 +12,20 @@ export default {
     data:function(){
         return {
             padID: this.$route.params.padID,
-            navbaRseTvisibility: true
+            navbaRseTvisibility: true,
+            create:"create"
         }
     },
     methods:{
-        sendID(){
-            bus.$emit('datasended',this.padID);
-        },
-        takeID(){
-            bus.$emit('takeID1',event);
-        },
+        // sendID(){
+        //     bus.$emit('datasended',this.padID);
+        // },
         makeSettingsVisible() {
             alert("Kalo to event gia to settings ap t main");
             bus.$emit("settings-visibility-mainToEdit", this.navbaRseTvisibility);
         },
         handler() {
-            this.sendID();
+            // this.sendID();
             this.makeSettingsVisible();
         }
     }   

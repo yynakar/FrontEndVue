@@ -50,6 +50,7 @@ export default class RestService {
 
   //returns a promise. it's handled at the caller
   createPadRequest() {
+    console.log("create pad request called ");
       return Vue.axios.post(this.ipAndPort() + "/NewPad");
   }
 

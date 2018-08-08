@@ -14,8 +14,8 @@
                             <font weight=normal size=5> Share and compose online <br> documents with your team </font>
                         </div>
                         <div class="clear-40 col-xs-3">
-                            <router-link to="/newPad">
-                                <button v-on:click="takeID($event)" type="button" class="btn custom_newPad_btn"> 
+                            <router-link v-bind:to="'newpad/' + create ">
+                                <button type="button" class="btn custom_newPad_btn"> 
                                         <font weight=normal size=5> New Pad </font>                                       
                                 </button>
                             </router-link>

@@ -24,8 +24,7 @@ export default new VueRouter({
             component: Settings
         },
         {
-            path: '/newpad',
-            name: 'newPad',
+            path: '/newpad/:create',
             component: newPadPage,
             props: true
             /*TODO:newpad component will be here*/

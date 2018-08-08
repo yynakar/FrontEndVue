@@ -388,7 +388,8 @@ export default {
     },
     refTest: function() {
       console.log("REFTEEEEEEEEEEEEEEST");
-    }
+    },
+    
   },
   mounted() {
     console.log("to id einai " + this.padId);

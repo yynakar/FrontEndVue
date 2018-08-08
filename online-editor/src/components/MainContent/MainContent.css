@@ -1,62 +1,72 @@
- .backgrounding{
-    background: url(./background_img.jpg);
-    align-content: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-}
-.panel-body{
-    background: blur(30px);
-    border-radius: 10px;
-    text-align: center;
-    box-align: center;
-    position: center;    
-}
-.panel-transparent {
-    background: blur(10px);
-}
-.panel-transparent .panel-body{
-    background:rgba(255,255,255,0.6);
-}
-.clear-20{
-    margin-top:20px;
-}
-.clear-40{
-    margin-top:40px;
-}
-.clear-10{
-    margin-top:10px;
-}
-.clear-50{
-    margin-top:50px;
-}
-h2{
-    font-family: 'Roboto', sans-serif;
-    color: rgba(0,0,0,1);
-    width: auto;
-}
-h4{
-    font-family: 'Roboto', sans-serif;
-    color: #2368B1;
-    width: auto;
-}
-.custom_newPad_btn{
-    background-color: #2368B1;
-    color: white;
-    font: bold; 
-    width: 300px !important;
-}
-custom_newPad_btn:hover{
-    background-color: rgb(30, 83, 139);
-}
-.custom_go_btn{
-    background-color: #2368B1;
-    color: white;
-    font: bold; 
-}
-.custom_go_btn:hover{
-    background-color: rgb(30, 83, 139);
-}
-.inlineFormInput{
-    border-radius: 10px;
-}
+     .backgrounding {
+         background: url(./background_img.jpg);
+         align-content: center;
+         background-size: cover;
+         background-repeat: no-repeat;
+         height: 100vh;
+     }
+     
+     .panel-body {
+         background: blur(30px);
+         border-radius: 10px;
+         text-align: center;
+         box-align: center;
+         position: center;
+     }
+     
+     .panel-transparent {
+         background: blur(10px);
+     }
+     
+     .panel-transparent .panel-body {
+         background: rgba(255, 255, 255, 0.6);
+     }
+     
+     .clear-20 {
+         margin-top: 20px;
+     }
+     
+     .clear-40 {
+         margin-top: 40px;
+     }
+     
+     .clear-10 {
+         margin-top: 10px;
+     }
+     
+     .clear-50 {
+         margin-top: 50px;
+     }
+     
+     h2 {
+         font-family: 'Roboto', sans-serif;
+         color: rgba(0, 0, 0, 1);
+         width: auto;
+     }
+     
+     h4 {
+         font-family: 'Roboto', sans-serif;
+         color: #2368B1;
+         width: auto;
+     }
+     
+     .custom_newPad_btn {
+         background-color: #2368B1;
+         color: white;
+         font: bold;
+         width: 300px !important;
+     }
+     
+     .custom_go_btn {
+         background-color: #2368B1;
+         color: white;
+         font: bold;
+     }
+     
+     #inlineFormInput {
+         border-radius: 10px;
+     }
+     
+     .errorMes {
+         color: red;
+     }

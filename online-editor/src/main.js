@@ -5,9 +5,10 @@ import router from './router'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueRouter from 'vue-router'
+import VeeValidate from 'vee-validate';
 
+Vue.use(VeeValidate);
 Vue.use(BootstrapVue);
-
 Vue.use(VueRouter);
 Vue.config.productionTip = false
 
@@ -17,19 +18,19 @@ Vue.config.productionTip = false;
 export const bus = new Vue();
 
 Vue.prototype.$globals = new Vue({
-    data(){
-      return {
-        test:''
-      }
+    data() {
+        return {
+            test: ''
+        }
     },
     methods: {
-        globalMethodTest(){
+        globalMethodTest() {
             console.log("global method called!!");
         }
     }
-  })
+})
 
-var app= new Vue({
+var app = new Vue({
     router,
     render: h => h(App)
 }).$mount('#app')

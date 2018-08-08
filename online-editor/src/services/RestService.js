@@ -64,12 +64,12 @@ export default class RestService {
 
   //returns a promise. it's handled at the caller
   createPadRequest() {
-      return Vue.axios.post(this.ipAndPort() + "/NeewPad");
+      return Vue.axios.post(this.ipAndPort() + "/NewPad");
   }
 
   loadPadRequest(padId) {
 
-    console.log("load pad request called with id: "+padId);
+    console.log("load pad request called with id:"  + padId);
 
     Vue.axios.get(this.ipAndPort() + "/LoadPad/"+padId)
       .then(function (response) {

@@ -17,7 +17,7 @@
                             <router-link to="/newPad">
                                 <button v-on:click="takeID_test($event)" type="button" class="btn custom_newPad_btn"> 
                                         <font weight=normal size=5> New Pad </font>                                       
-                                    </button>
+                                </button>
                             </router-link>
                         </div>
                         <div class="clear-20"></div>
@@ -28,10 +28,16 @@
                         <form class="form-inline  justify-content-center">
                             <div class="input">
                                 <input type="text" v-model="padID" class=" form-control form-control-lg" id="inlineFormInput" placeholder="your pad ID">
-                                <router-link to="/edit/:id">
+                                
+                               <!-- <router-link to="/edit/">
                                     <button v-on:click="handler" class="btn custom_go_btn ml-3">
                                             <font weight=normal size=5> Go </font>
-                                        </button>
+                                    </button>
+                                </router-link> -->
+                                <router-link v-bind:to=" 'edit/' + padID ">
+                                    <button v-on:click="handler" class="btn custom_go_btn ml-3">
+                                            <font weight=normal size=5> Go </font>
+                                    </button>
                                 </router-link>
                             </div>
 

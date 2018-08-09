@@ -21,7 +21,9 @@ export default {
   data: function() {
     return {
       navbaRseTvisibility: true,
-      padId:'' //xreiazetai?
+      padId:'' ,
+      title:'Title should be other than this',
+      ipANDport:'not the right ip and port'
     };
   },
   methods: {
@@ -39,10 +41,24 @@ export default {
     bus.$on("settings-visibility-mainToEdit", data => {
       this.navbaRseTvisibility = data;
     }),
-    this.makeSettingsVisible2(); //calling the makeSettingsVisible2 when edit component is loaded
+    this.makeSettingsVisible2(), //calling the makeSettingsVisible2 when edit component is loaded
+    this.requestTitle();
   },
   beforeDestroy() {
     this.makeSettingsInvisible();
+  },
+  requestTitle(){
+    this.restService.getTitle().then(response => {
+      this.title = response.data.title;
+    },
+    err =>{
+      console.log(err);
+    })
+  },
+  getIpAndPort(){
+    //return this.RestService.ipAndPort();
+    //return this.ipANDport;
+    return "f this";
   }
 };
 </script>

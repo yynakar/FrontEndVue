@@ -8,9 +8,11 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueRouter from 'vue-router'
 import VueClipboard from 'vue-clipboard2'
 import VTooltip from 'v-tooltip'
+import VeeValidate from 'vee-validate';
 
 Vue.use(VTooltip)
 Vue.use(VueClipboard)
+Vue.use(VeeValidate);
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 Vue.config.productionTip = false

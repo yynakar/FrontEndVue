@@ -6,13 +6,13 @@ import VueAxios from 'vue-axios'
 import newPad from '../components/newPad/newPad.vue'
 Vue.use(VueAxios, axios)
 
+
 export default class RestService {
 
   constructor() {
     this.ip = CONFIG.serverIp;
     this.port = CONFIG.serverPort;
     this.padId = null;
-    var data = newPad.$data;
   }
 
   setPadID(id) {
@@ -24,14 +24,13 @@ export default class RestService {
     return this.ip + ":" + this.port;
   }
 
-  modifyText(modInfo) {
+  modifyPad(modInfo) {
 
     var date = this.ISODateString(new Date());
 
     modInfo.Req_date = Date.now()
 
     console.log(modInfo);
-
 
     Vue.axios.put(this.ipAndPort() + "/Edit", modInfo)
       .then(function (response) {
@@ -67,10 +66,6 @@ export default class RestService {
 
   checkForChange() {
     //console.log("check for change called!");
-  }
-
-  getAllTheText() {
-
   }
 
   // CONVERTS DATE TO RFC 3339 TIMESTAMP

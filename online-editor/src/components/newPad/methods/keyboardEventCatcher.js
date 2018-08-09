@@ -21,8 +21,6 @@ export default{
       },
       keyDownEvent: function(event) {
         //BE WARE! textcursor starts from 0
-  
-        //this.restService.modifyText();
         if (event.key === "Control") {
           this.ctrlKeyDown = true;
         }

@@ -10,10 +10,10 @@ export default{
               Value: info.string,
               Start: info.textCursor,
               End: info.textCursor,
-              Pad_ID: CONFIG.padId
+              Pad_ID: CONFIG.padId,
             };
   
-            this.restService.modifyText(modInfo);
+            this.restService.modifyPad(modInfo);
   
             break;
           case this.inputKindsEnum["STRING INSIDE"]:
@@ -25,7 +25,7 @@ export default{
               Pad_ID: CONFIG.padId
             };
   
-            this.restService.modifyText(modInfo);
+            this.restService.modifyPad(modInfo);
   
             // if (info.type === "keyDownEvent") {
             //   console.log(
@@ -60,7 +60,7 @@ export default{
                 Pad_ID: CONFIG.padId
               };
   
-              this.restService.modifyText(modInfo);
+              this.restService.modifyPad(modInfo);
             }
   
             break;

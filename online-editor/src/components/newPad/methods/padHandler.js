@@ -15,7 +15,7 @@ export default {
     },
     loadPad: function (id) {
         console.log("Pad loaded with id: "+id);
-        CONFIG.padId = this.idInput;
+        CONFIG.padId = id;
         this.restService.loadPadRequest(id).then(
             result => {
                 console.log(result);

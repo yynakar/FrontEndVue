@@ -8,7 +8,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueRouter from 'vue-router'
 import VueClipboard from 'vue-clipboard2'
 import VTooltip from 'v-tooltip'
-
+import VModal from 'vue-js-modal'
+ 
+Vue.use(VModal)
 Vue.use(VTooltip)
 Vue.use(VueClipboard)
 Vue.use(BootstrapVue);

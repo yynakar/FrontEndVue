@@ -1,18 +1,20 @@
 import CONFIG from '../config.json';
-
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import newPad from '../components/newPad/newPad.vue'
 Vue.use(VueAxios, axios)
 
-export default class RestService {
 
+export default class RestService {
   constructor() {
     this.ip = CONFIG.serverIp;
     this.port = CONFIG.serverPort;
     this.padId = null;
     var data = newPad.$data;
+    this.deleteValue = 'delete';
+    this.emptyValue = 'empty';
+
   }
 
   setPadID(id) {
@@ -54,14 +56,41 @@ export default class RestService {
     return Vue.axios.get(this.ipAndPort() + "/LoadPad/" + padId);
   }
 
-  modifyTitle(title, padID) {
-    console.log("modifyTitle Called with: " +title);
-
+  modifyTitle(title,padID) {
+    console.log("modifyTitle Called with: " + title);
     var info = {
       id: padID,
       title: title
     }
     //return Vue.axios.put(this.ipAndPort() + "/Edit", modInfo)
+  }
+  emptyDoc(){
+    console.log("aimilios empty document !");
+    var info = {
+      id: CONFIG.padId,
+      emptyValue: this.emptyValue
+    };
+    Vue.axios.post(this.ipAndPort() + "/settings", this.emptyValue).then(
+      result => {
+          //na petaw parathiro na lew are u sure?
+        },
+      function (err) {
+        this.errors.push(err);
+      }
+  );
+  }
+  deleteDoc() {
+    console.log("aimilios delete document !");
+
+    Vue.axios.post(this.ipAndPort() + "/settings", this.deleteValue).then(
+      result => {
+          console.log(result);
+          this.$route.MainContent;
+        },
+      function (err) {
+        this.errors.push(err);
+      }
+  );
   }
 
 

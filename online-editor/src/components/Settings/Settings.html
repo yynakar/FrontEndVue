@@ -8,45 +8,77 @@
                 <div class="h-100 pt-1 pb-2 panel">
                     <div class="col headers-text">Edit Title</div>
                     <form class="col mt-2 form-inline">
-                        <div class="input"> 
+                        <div class="input">
                             <input type="text" v-model="padID" class=" form-control form-control-md" id="inlineFormInput" placeholder="document title">
-                                <button type="button" class="btn custom_rename_btn ml-3">
-                                    <font weight=normal size=4> Rename </font>
-                                </button>
+                            <button type="button" class="btn custom_rename_btn ml-3">
+                                <font weight=normal size=4> Rename </font>
+                            </button>
                         </div>
-                    </form> 
+                    </form>
                     <div class="mt-2 col headers-text">Edit/View document</div>
                     <div class="mt-sm-0 col-7 ml-3 mt-2 box">
-                        <span class="text"> 20/Sept/2018 13:44:59 - 127.0.0.1:43198 - Started session </span> <br>
-                        <span class="text"> 20/Sept/2018 13:44:59 - 127.0.0.1:43198 - Started session </span> <br>
-                        <span class="text"> 20/Sept/2018 13:44:59 - 127.0.0.1:43198 - Started session </span> <br>
+                        <span class="text"> 20/Sept/2018 13:44:59 - 127.0.0.1:43198 - Started session </span>
+                        <br>
+                        <span class="text"> 20/Sept/2018 13:44:59 - 127.0.0.1:43198 - Started session </span>
+                        <br>
+                        <span class="text"> 20/Sept/2018 13:44:59 - 127.0.0.1:43198 - Started session </span>
+                        <br>
                         <span class="text"> 20/Sept/2018 13:44:59 - 127.0.0.1:43198 - Started session </span>
                     </div>
                     <div class="mt-2 col headers-text">Danger Zone</div>
                     <div class="mt-sm-0 ml-3 mt-2 col-7 red-box">
                         <div class="header-box-text"> Empty this document </div>
-                            <div class="summary-text">
-                                This action will empty the content of this document.
-                                <span>
-                                        <button type="button" class="ml-2 text-justify btn empty-btn">
-                                            Empty this document
-                                        </button>
-                                </span>
-                            </div>
-                            <hr>
-                            <div class="header-box-text"> Delete this document </div>
-                            <div class="summary-text">
-                                The document will be destroyed forever  
-                                <span>
-                                    <button type="button" class="ml-5 mb-3 text-justify btn delete-btn">
-                                            Delete this document
-                                    </button>
-                                </span>
-                            </div>
+                        <div class="summary-text">
+                            This action will empty the content of this document.
+                            <span>
+                                <button v-on:click="emptyClicked" type="button" class="ml-2 text-justify btn empty-btn">
+                                    Empty this document
+                                </button>
+                            </span>
+                        </div>
+                        <hr>
+                        <div class="header-box-text"> Delete this document </div>
+                        <div class="summary-text">
+                            The document will be destroyed forever
+                            <span>
+                                <!--<b-btn class="ml-5 mb-3  btn delete-btn" v-b-modal>Delete this document</b-btn>
+                                <b-modal  title="Delete this document">
+                                    <p class="my-4">Are you sure you want delete docoment?</p>
+                                </b-modal> -->
+                                <button type="button" class="ml-5 mb-3 text-justify btn delete-btn" data-toggle="modal" data-target="#exampleModal">
+                                    Delete this document
+                                </button>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="ml-5 mb-3 text-justify btn delete-btn" data-toggle="modal" data-target="#exampleModal">
+                                        Delete this document
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Delete this document</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                <button type="button" class="btn btn-danger" data-success="modal">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>

@@ -4,13 +4,17 @@
 
 <script>
 import CONFIG from "../../config.json";
+
+//Services
 import RestService from "../../services/RestService";
 import PollingService from "../../services/PollingService";
 
 //Methods Importing
 import keyboardEventCatcher from "./methods/keyboardEventCatcher.js";
 import keyboardEventHandler from "./methods/keyboardEventHandler.js";
+import textModificationAPI from "./methods/textModificationAPI.js";
 import padHandler from "./methods/padHandler.js";
+
 
 export default {
   name: "newPad",
@@ -44,6 +48,7 @@ export default {
     //using object rest spread operator
     ...keyboardEventCatcher,
     ...keyboardEventHandler,
+    ...textModificationAPI,
     ...padHandler
   },
   mounted() {

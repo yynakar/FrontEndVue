@@ -23,6 +23,7 @@ export default {
             Pad_ID: CONFIG.padId
         };
 
+
         // if (info.type === "keyDownEvent") {
         //   console.log(
         //     "INSERT CHAR " + info.string + " TO POSITIONS " + info.textCursor
@@ -62,5 +63,19 @@ export default {
 
         this.restService.modifyPad(modInfo);
     },
+    replaceString: function(info){
+        var modInfo = {
+            Req_date: Date.now(),
+            Value: info.string,
+            Start: this.lastSelectionInfo.selectionStart,
+            End: this.lastSelectionInfo.selectionEnd,
+            Pad_ID: CONFIG.padId
+        };
+
+        this.restService.modifyPad(modInfo);
+
+    }
+
+    
 
 }

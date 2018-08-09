@@ -4,12 +4,15 @@ import CONFIG from "../../../config.json";
 export default {
   handleEvent: function (info) {
     switch (this.kindOfInput(info)) {
+
       case this.inputKindsEnum["STRING END"]:
         this.insertStringAtTheEnd(info);
         break;
+
       case this.inputKindsEnum["STRING INSIDE"]:
         this.insertStringInside(info);
         break;
+
       case this.inputKindsEnum["ERASE END"]:
         if (this.textWasSelected) {
           this.eraseSelectedString(info);
@@ -17,42 +20,27 @@ export default {
           this.eraseChar(info);
         }
         break;
-      case this.inputKindsEnum["ERASE INSIDE"]:
 
+      case this.inputKindsEnum["ERASE INSIDE"]:
         if (this.textWasSelected) {
           this.eraseSelectedString(info);
         } else {
           this.eraseChar(info);
         }
         break;
+
       case this.inputKindsEnum["REPLACE END"]:
-        console.log("REPLACE END");
+      this.replaceString(info);
+      break;
 
-        console.log(
-          "REMOVE " +
-          (this.lastSelectionInfo.selectionEnd -
-            +this.lastSelectionInfo.selectionStart) +
-          " CHARS FROM THE END AND REPLACE THEM WITH " +
-          info.string
-        );
-
-        break;
       case this.inputKindsEnum["REPLACE INSIDE"]:
-        console.log(
-          "REMOVE " +
-          (this.lastSelectionInfo.selectionEnd -
-            +this.lastSelectionInfo.selectionStart) +
-          " CHARS FROM " +
-          this.lastSelectionInfo.selectionStart +
-          " TO " +
-          (this.lastSelectionInfo.selectionEnd - 1) +
-          " AND REPLACE THEM WITH " +
-          info.string
-        );
+      this.replaceString(info);
         break;
+
       case this.inputKindsEnum["KEY PATTERN"]:
         //console.log("KEY PATTERN");
         break;
+        
       default:
         console.log("UNCAUGHT ENUMERATOR");
     }

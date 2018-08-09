@@ -1,11 +1,15 @@
 <div v-model="makeSettingsVisible" class="MainContent col-lg col-centered">
-    <form class="input col-2 my-3">
-        <input v-model="title" v-on:keydown="modifyTitle" type="text" class="form-control justify-content-center" placeholder="enter title">
-    </form>
-    <span>
-        <button type="button" v-b-tooltip.click="'copied!'" variant="outline-success" class="btn float-right mr-3 mt-3"  v-clipboard:copy="message" v-clipboard:success="onCopy" v-clipboard:error="onError">copy Pad ID
 
-        </button>
-    </span> 
+        <form class=" col-2 my-2">
+            <input v-model="title" v-on:keydown="modifyTitle" type="text" class="form-control" placeholder="enter title">
+        </form>
+        <span>
+            <button type="button" v-b-tooltip.click="'copied!'" 
+                variant="outline-success" 
+                class="btn float-right my-2 mr-3"  
+                v-clipboard:copy="message" 
+                v-clipboard:error="onError">copy Pad ID
+            </button>
+        </span> 
     <newPad></newPad>
 </div>

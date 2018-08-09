@@ -21,13 +21,6 @@ export default {
     newPad: newPad,
     users: users,
   },
-  /*Here will be placed the id we get from the backend
-    props: {
-        id: {
-            type: Number,
-            default: 5
-        }
-    },*/
   data: function() {
     return {
       seTvisibility: true,
@@ -38,12 +31,6 @@ export default {
       title: "",
       message: CONFIG.padId
     };
-  },
-  mounted() {
-    bus.$on("datasended", data => {
-      alert("ela ti leeii mpika mounted data edit newpad");
-      this.padId = data;
-    });
   },
   methods: {
     makeSettingsVisible() {
@@ -61,9 +48,6 @@ export default {
         console.log(this.title);
         this.restService.modifyTitle(this.title);
       }, this.modifyTitleInterval);
-    },
-    onCopy: function (e) {
-      //alert('You just copied: ' + CONFIG.padId)
     },
     onError: function (e) {
       alert('Failed to copy texts')

@@ -28,10 +28,9 @@
                         <div class="clear-20"></div>
                         <form class="form-inline  justify-content-center">
                             <div class="input">
-                                <input type="text" v-model="padID" class=" form-control form-control-lg" id="inlineFormInput" placeholder="your pad ID">
-
-                                <!-- <router-link to="/edit/">
-                                    <button v-on:click="handler" class="btn custom_go_btn ml-3">
+                                <input v-validate="'required|min:16'" name="id" v-model="padID" data-parsley-length="[16, 16]" type="text" @input="checkIDinput()" pattern="[a-f0-9]{16,}" class=" form-control form-control-lg" id="inlineFormInput" placeholder="your pad ID">
+                                    <router-link to="/edit/:id">
+                                        <button v-on:click="handler" class="btn custom_go_btn ml-3">
                                             <font weight=normal size=5> Go </font>
                                     </button>
                                 </router-link> -->

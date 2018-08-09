@@ -9,9 +9,14 @@ import users from "../users/index.vue";
 import restService from "../../services/RestService.js";
 import { bus } from "../../main";
 import RestService from "../../services/RestService";
+import VueClipboard from 'vue-clipboard2'
+import CONFIG from '../../config'
+
+
 
 export default {
   name: "edit",
+
   components: {
     newPad: newPad,
     users: users,
@@ -30,7 +35,8 @@ export default {
       modifyTitleInterval: 3000, //milliseconds
       restService: new RestService(),
       clock : null,
-      title: ""
+      title: "",
+      message: CONFIG.padId
     };
   },
   mounted() {
@@ -55,6 +61,12 @@ export default {
         console.log(this.title);
         this.restService.modifyTitle(this.title);
       }, this.modifyTitleInterval);
+    },
+    onCopy: function (e) {
+      //alert('You just copied: ' + CONFIG.padId)
+    },
+    onError: function (e) {
+      alert('Failed to copy texts')
     }
   }
 };

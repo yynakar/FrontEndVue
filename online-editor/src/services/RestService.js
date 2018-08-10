@@ -63,11 +63,7 @@ export default class RestService {
     //return Vue.axios.put(this.ipAndPort() + "/Edit", modInfo)
   }
   renameDoc(retitle) {
-    console.log("aimilios rename document !");
-    console.log("aimilios rename document !" + retitle);
-
-
-    Vue.axios.post(this.ipAndPort() + "/settings", this.emptyValue).then(
+    Vue.axios.post(this.ipAndPort() + "/settings", retitle).then(
       result => {
         console.log(result);
       },

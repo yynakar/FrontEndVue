@@ -5,12 +5,12 @@
                 <div class="title">Settings</div>
             </div>
             <div class="white-row">
-                <div class="h-100 pt-1 pb-2 panel">
+                <div class="h-100 col-12 pt-1 pb-5 panel">
                     <div class="col headers-text">Edit Title</div>
                     <form class="col mt-2 form-inline">
                         <div class="input">
-                            <input type="text" v-model="padID" class=" form-control form-control-md" id="inlineFormInput" placeholder="document title">
-                            <button type="button" class="btn custom_rename_btn ml-3">
+                            <input type="text" v-model="retitle" class=" form-control form-control-md" id="inlineFormInput" placeholder="new title">
+                            <button  @click="renameClicked" type="button" class="btn custom_rename_btn ml-3">
                                 <font weight=normal size=4> Rename </font>
                             </button>
                         </div>

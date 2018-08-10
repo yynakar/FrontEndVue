@@ -33,14 +33,6 @@
     border-width: 1px;
     border-color: #c8c8c8;
     border-radius: 5px;
-
-}
-.custom_rename_btn{
-    border: #c8c8cc;
-    background: #2368B1;
-    color: white;
-    opacity: 0.5;
-    border-radius: 2;
 }
 .box{
     border: #c8c8c8;
@@ -78,11 +70,34 @@ hr {
     border-style: solid;
     border-width: 1px 0;
   }
+
+.custom_rename_btn{
+    border: #c8c8cc;
+    background: #2368B1;
+    color: white;
+    opacity: 0.5;
+    border-radius: 2;
+}
+
+.custom_rename_btn:hover{
+    opacity: 1
+}
+
 .empty-btn{
     background: linear-gradient(#F1F5F9, #757575 );
     color: #C30000;
 }
+.empty-btn:hover{
+    background: #C30000;
+    color: white;
+}
+
 .delete-btn{
     background: linear-gradient(#F1F5F9, #757575 );
     color: #C30000;
+}
+
+.delete-btn:hover{
+    background: #C30000;
+    color: white;
 }

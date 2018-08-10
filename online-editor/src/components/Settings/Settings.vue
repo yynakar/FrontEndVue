@@ -10,10 +10,14 @@ import VModal from "vue-js-modal";
 export default {
   data: function() {
     return {
-      restService: new RestService()
+      restService: new RestService(),
+      retitle: ''
     };
   },
   methods: {
+    renameClicked:function(){
+      this.restService.renameDoc(this.retitle);
+    },
     hideModal() {
       this.$refs.myModalRef.hide();
     },

@@ -13,7 +13,6 @@ export default class RestService {
     this.padId = null;
     this.deleteValue = 'delete';
     this.emptyValue = 'empty';
-
   }
 
   setPadID(id) {
@@ -55,7 +54,7 @@ export default class RestService {
     return Vue.axios.get(this.ipAndPort() + "/LoadPad/" + padId);
   }
 
-  modifyTitle(title,padID) {
+  modifyTitle(title, padID) {
     console.log("modifyTitle Called with: " + title);
     var info = {
       id: padID,
@@ -63,30 +62,44 @@ export default class RestService {
     }
     //return Vue.axios.put(this.ipAndPort() + "/Edit", modInfo)
   }
-  emptyDoc(){
-    console.log("aimilios empty document !");
+  renameDoc(retitle) {
+    console.log("aimilios rename document !");
+    console.log("aimilios rename document !" + retitle);
+
+
     Vue.axios.post(this.ipAndPort() + "/settings", this.emptyValue).then(
       result => {
-          console.log(result);
-          this.$route.edit;
-        },
+        console.log(result);
+      },
       function (err) {
         this.errors.push(err);
       }
-  );
+    );
+  }
+  emptyDoc() {
+    console.log("aimilios empty document !");
+    Vue.axios.post(this.ipAndPort() + "/settings", this.emptyValue).then(
+      result => {
+        console.log(result);
+        this.$route.edit;
+      },
+      function (err) {
+        this.errors.push(err);
+      }
+    );
   }
   deleteDoc() {
     console.log("aimilios delete document !");
 
     Vue.axios.post(this.ipAndPort() + "/settings", this.deleteValue).then(
       result => {
-          console.log(result);
-          this.$route.MainContent;
-        },
+        console.log(result);
+        this.$route.MainContent;
+      },
       function (err) {
         this.errors.push(err);
       }
-  );
+    );
   }
 
 

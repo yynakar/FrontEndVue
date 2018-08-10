@@ -11,7 +11,6 @@ export default class RestService {
     this.ip = CONFIG.serverIp;
     this.port = CONFIG.serverPort;
     this.padId = null;
-    var data = newPad.$data;
     this.deleteValue = 'delete';
     this.emptyValue = 'empty';
 
@@ -66,13 +65,10 @@ export default class RestService {
   }
   emptyDoc(){
     console.log("aimilios empty document !");
-    var info = {
-      id: CONFIG.padId,
-      emptyValue: this.emptyValue
-    };
     Vue.axios.post(this.ipAndPort() + "/settings", this.emptyValue).then(
       result => {
-          //na petaw parathiro na lew are u sure?
+          console.log(result);
+          this.$route.edit;
         },
       function (err) {
         this.errors.push(err);

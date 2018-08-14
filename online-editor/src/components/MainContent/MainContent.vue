@@ -5,6 +5,7 @@
 <script>
 import { bus } from "../../main";
 import { store } from "../../store/store";
+//import padHandler from "./methods/padHandler.js";//this is needed for handle file, probably vuex
 
 export default {
   name: "MainContent",
@@ -23,6 +24,10 @@ export default {
       this.makeSettingsVisible();
       //loadPad(padID);
     }
+  },
+  mounted(){
+    //this.handleFile();
+    //this may be the solution for the correct routing debugging, but needs vuex
   }
 };
 </script>

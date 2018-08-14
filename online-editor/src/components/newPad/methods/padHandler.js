@@ -1,6 +1,4 @@
 import CONFIG from "../../../config.json";
-
-
 export default {
     createPad: function() {
         this.restService.createPadRequest().then(
@@ -8,6 +6,10 @@ export default {
                 CONFIG.padId = result.data.id;
                 console.log("PAD created with id: " + CONFIG.padId);
                 //console.log("Name(title) from back:" + result.data.name);
+
+                //this is dummy
+                //this.PollingService.polling();
+                alert("Is this just fantasy?");
             },
             function(err) {
                 console.log("Error: Could not create pad");

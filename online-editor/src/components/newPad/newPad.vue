@@ -55,6 +55,8 @@ export default {
     //In order not to change ever again and act as a real enum
     Object.freeze(this.inputKindsEnum);
     this.handleFile();
+    alert("Is this the real life?");
   }
+
 };
 </script>

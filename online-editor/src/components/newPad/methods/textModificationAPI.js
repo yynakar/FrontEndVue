@@ -2,8 +2,8 @@ import CONFIG from "../../../config.json";
 
 export default {
 
-    insertStringAtTheEnd: function (info) {
-        console.log("insert at the end calleddd");
+    insertStringAtTheEnd: function(info) {
+        console.log("insert at the end called");
         var modInfo = {
             Req_date: null,
             Value: info.string,
@@ -14,7 +14,7 @@ export default {
 
         this.restService.modifyPad(modInfo);
     },
-    insertStringInside: function (info) {
+    insertStringInside: function(info) {
         var modInfo = {
             Req_date: null,
             Value: info.string,
@@ -41,7 +41,7 @@ export default {
 
         this.restService.modifyPad(modInfo);
     },
-    eraseChar: function (info) {
+    eraseChar: function(info) {
         var modInfo = {
             Req_date: Date.now(),
             Value: "",
@@ -52,7 +52,7 @@ export default {
 
         this.restService.modifyPad(modInfo);
     },
-    eraseSelectedString: function (info) {
+    eraseSelectedString: function(info) {
         var modInfo = {
             Req_date: Date.now(),
             Value: "",
@@ -63,7 +63,7 @@ export default {
 
         this.restService.modifyPad(modInfo);
     },
-    replaceString: function(info){
+    replaceString: function(info) {
         var modInfo = {
             Req_date: Date.now(),
             Value: info.string,
@@ -76,6 +76,6 @@ export default {
 
     }
 
-    
+
 
 }

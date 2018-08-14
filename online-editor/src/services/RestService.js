@@ -7,13 +7,13 @@ Vue.use(VueAxios, axios)
 
 
 export default class RestService {
-  constructor() {
-    this.ip = CONFIG.serverIp;
-    this.port = CONFIG.serverPort;
-    this.padId = null;
-    this.deleteValue = 'delete';
-    this.emptyValue = 'empty';
-  }
+    constructor() {
+        this.ip = CONFIG.serverIp;
+        this.port = CONFIG.serverPort;
+        this.padId = null;
+        this.deleteValue = 'delete';
+        this.emptyValue = 'empty';
+    }
 
     setPadID(id) {
         this.padId = id;
@@ -50,49 +50,49 @@ export default class RestService {
         return Vue.axios.get(this.ipAndPort() + "/LoadPad/" + padId);
     }
 
-  modifyTitle(title, padID) {
-    console.log("modifyTitle Called with: " + title);
-    var info = {
-      id: padID,
-      name: title
+    modifyTitle(title, padID) {
+        console.log("modifyTitle Called with: " + title);
+        var info = {
+            id: padID,
+            name: title
+        }
+        return Vue.axios.post(this.ipAndPort() + "/RenameFile" + info);
     }
-    return Vue.axios.post(this.ipAndPort() + "/RenameFile" +info);
-  }
-  renameDoc(retitle) {
-    Vue.axios.post(this.ipAndPort() + "/settings", retitle).then(
-      result => {
-        console.log(result);
-      },
-      function (err) {
-        this.errors.push(err);
-      }
-    );
-  }
-  emptyDoc() {
-    console.log("aimilios empty document !");
-    Vue.axios.post(this.ipAndPort() + "/settings", this.emptyValue).then(
-      result => {
-        console.log(result);
-        this.$route.edit;
-      },
-      function (err) {
-        this.errors.push(err);
-      }
-    );
-  }
-  deleteDoc() {
-    console.log("aimilios delete document !");
+    renameDoc(retitle) {
+        Vue.axios.post(this.ipAndPort() + "/settings", retitle).then(
+            result => {
+                console.log(result);
+            },
+            function(err) {
+                this.errors.push(err);
+            }
+        );
+    }
+    emptyDoc() {
+        console.log("aimilios empty document !");
+        Vue.axios.post(this.ipAndPort() + "/settings", this.emptyValue).then(
+            result => {
+                console.log(result);
+                this.$route.edit;
+            },
+            function(err) {
+                this.errors.push(err);
+            }
+        );
+    }
+    deleteDoc() {
+        console.log("aimilios delete document !");
 
-    Vue.axios.post(this.ipAndPort() + "/settings", this.deleteValue).then(
-      result => {
-        console.log(result);
-        this.$route.MainContent;
-      },
-      function (err) {
-        this.errors.push(err);
-      }
-    );
-  }
+        Vue.axios.post(this.ipAndPort() + "/settings", this.deleteValue).then(
+            result => {
+                console.log(result);
+                this.$route.MainContent;
+            },
+            function(err) {
+                this.errors.push(err);
+            }
+        );
+    }
 
     getTitle() {
         return Vue.axios.get(this.ipAndPort() + "/Edit/" + padId); //to exoume leei, ante vres to
@@ -100,7 +100,18 @@ export default class RestService {
 
 
     checkForChange() {
-        //console.log("check for change called!");
+        console.log("check for change called!");
+
+        Vue.axios.get(this.ipAndPort() + "/Edit/" + padId).then(
+            result => {
+                console.log(result);
+                //do something with the changes
+                //must put the changes in existing pad, with the existing functions propably
+            },
+            function(err) {
+                this.errors.push(err);
+            }
+        );
     }
 
     // CONVERTS DATE TO RFC 3339 TIMESTAMP

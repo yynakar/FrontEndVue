@@ -15,52 +15,48 @@ export default class RestService {
     this.emptyValue = 'empty';
   }
 
-  setPadID(id) {
-    this.padId = id;
-  }
+    setPadID(id) {
+        this.padId = id;
+    }
+    ipAndPort() {
+        return this.ip + ":" + this.port;
+    }
 
+    modifyPad(modInfo) {
 
-  ipAndPort() {
-    return this.ip + ":" + this.port;
-  }
+        var date = this.ISODateString(new Date());
 
-  modifyText(modInfo) {
+        modInfo.Req_date = Date.now()
 
-    var date = this.ISODateString(new Date());
+        console.log(modInfo);
 
-    modInfo.Req_date = Date.now()
+        Vue.axios.put(this.ipAndPort() + "/Edit", modInfo)
+            .then(function(response) {
+                console.log(response);
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
 
-    console.log(modInfo);
+    }
 
+    //returns a promise. it's handled at the caller
+    createPadRequest() {
+        //console.log("create pad request called ");
+        return Vue.axios.post(this.ipAndPort() + "/NewPad");
+    }
 
-    Vue.axios.put(this.ipAndPort() + "/Edit", modInfo)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-  }
-
-  //returns a promise. it's handled at the caller
-  createPadRequest() {
-    //console.log("create pad request called ");
-    return Vue.axios.post(this.ipAndPort() + "/NewPad");
-  }
-
-  loadPadRequest(padId) {
-    //console.log("load pad request called with id:" + padId);
-    return Vue.axios.get(this.ipAndPort() + "/LoadPad/" + padId);
-  }
+    loadPadRequest(padId) {
+        return Vue.axios.get(this.ipAndPort() + "/LoadPad/" + padId);
+    }
 
   modifyTitle(title, padID) {
     console.log("modifyTitle Called with: " + title);
     var info = {
       id: padID,
-      title: title
+      name: title
     }
-    //return Vue.axios.put(this.ipAndPort() + "/Edit", modInfo)
+    return Vue.axios.post(this.ipAndPort() + "/RenameFile" +info);
   }
   renameDoc(retitle) {
     Vue.axios.post(this.ipAndPort() + "/settings", retitle).then(
@@ -98,27 +94,25 @@ export default class RestService {
     );
   }
 
-
-  checkForChange() {
-    
-    //console.log("check for change called!");
-  }
-
-  getAllTheText() {
-
-  }
-
-  // CONVERTS DATE TO RFC 3339 TIMESTAMP
-  ISODateString(d) {
-    function pad(n) {
-      return n < 10 ? '0' + n : n
+    getTitle() {
+        return Vue.axios.get(this.ipAndPort() + "/Edit/" + padId); //to exoume leei, ante vres to
     }
-    return d.getUTCFullYear() + '-' +
-      pad(d.getUTCMonth() + 1) + '-' +
-      pad(d.getUTCDate()) + 'T' +
-      pad(d.getUTCHours()) + ':' +
-      pad(d.getUTCMinutes()) + ':' +
-      pad(d.getUTCSeconds()) + 'Z'
-  }
 
+
+    checkForChange() {
+        //console.log("check for change called!");
+    }
+
+    // CONVERTS DATE TO RFC 3339 TIMESTAMP
+    ISODateString(d) {
+        function pad(n) {
+            return n < 10 ? '0' + n : n
+        }
+        return d.getUTCFullYear() + '-' +
+            pad(d.getUTCMonth() + 1) + '-' +
+            pad(d.getUTCDate()) + 'T' +
+            pad(d.getUTCHours()) + ':' +
+            pad(d.getUTCMinutes()) + ':' +
+            pad(d.getUTCSeconds()) + 'Z'
+    }
 }

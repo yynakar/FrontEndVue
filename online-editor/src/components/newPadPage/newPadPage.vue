@@ -32,6 +32,11 @@ export default {
       message: CONFIG.padId
     };
   },
+  mounted() {
+    bus.$on("datasended", data => {
+      this.padId = data;
+    });
+  },
   methods: {
     makeSettingsVisible() {
       alert("Kalo to event gia to settings");

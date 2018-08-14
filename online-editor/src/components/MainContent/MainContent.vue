@@ -4,13 +4,13 @@
 
 <script>
 import { bus } from "../../main";
-import {store} from '../../store/store'
+import { store } from "../../store/store";
 
 export default {
   name: "MainContent",
   data: function() {
     return {
-      padID:'',
+      padID: "",
       navbaRseTvisibility: true,
       create: "create"
     };

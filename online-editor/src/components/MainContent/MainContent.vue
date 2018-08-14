@@ -21,6 +21,7 @@ export default {
     },
     handler() {
       this.makeSettingsVisible();
+      //loadPad(padID);
     }
   }
 };

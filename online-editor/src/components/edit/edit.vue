@@ -41,8 +41,8 @@ export default {
     bus.$on("settings-visibility-mainToEdit", data => {
       this.navbaRseTvisibility = data;
     }),
-    this.makeSettingsVisible2(), //calling the makeSettingsVisible2 when edit component is loaded
-    this.requestTitle();
+    this.makeSettingsVisible2(); //calling the makeSettingsVisible2 when edit component is loaded
+    //this.requestTitle();
   },
   beforeDestroy() {
     this.makeSettingsInvisible();
@@ -56,9 +56,9 @@ export default {
     })
   },
   getIpAndPort(){
-    //return this.RestService.ipAndPort();
+    return this.RestService.ipAndPort();
     //return this.ipANDport;
-    return "f this";
+    //return "f this";
   }
 };
 </script>

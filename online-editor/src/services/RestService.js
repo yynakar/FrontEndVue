@@ -49,18 +49,22 @@ export default class RestService {
     }
 
     loadPadRequest(padId) {
-        //console.log("load pad request called with id:" + padId);
         return Vue.axios.get(this.ipAndPort() + "/LoadPad/" + padId);
     }
 
-    modifyTitle(title, padID) {
+    modifyTitle(title, padID) { //It is called from NewPad when the user sets a title for the first time
         console.log("modifyTitle Called with: " + title);
 
         var info = {
-                id: padID,
-                title: title
-            }
-            //return Vue.axios.put(this.ipAndPort() + "/Edit", modInfo)
+            id: padID,
+            name: title
+        }
+
+        return Vue.axios.post(this.ipAndPort() + "/RenameFile" + info); //logika sosto
+    }
+
+    getTitle() {
+        return Vue.axios.get(this.ipAndPort() + "/Edit/" + padId); //to exoume leei, ante vres to
     }
 
 
@@ -79,9 +83,5 @@ export default class RestService {
             pad(d.getUTCHours()) + ':' +
             pad(d.getUTCMinutes()) + ':' +
             pad(d.getUTCSeconds()) + 'Z'
-    }
-
-    getTitle() {
-        return Vue.axios.get(this.ipAndPort() + "/Edit/" + padId); //need proper path from backend
     }
 }

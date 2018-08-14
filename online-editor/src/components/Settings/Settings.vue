@@ -16,7 +16,13 @@ export default {
   },
   methods: {
     renameClicked:function(){
-      this.restService.renameDoc(this.retitle);
+      if(this.clock !== null){
+        clearTimeout(this.clock);
+      }
+      this.clock = setTimeout(ticker => {
+        console.log(this.retitle);
+        this.restService.renameDoc(this.retitle);
+      }, this.modifyTitleInterval);
     },
     hideModal() {
       this.$refs.myModalRef.hide();

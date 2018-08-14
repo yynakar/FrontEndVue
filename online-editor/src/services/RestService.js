@@ -100,6 +100,7 @@ export default class RestService {
 
 
   checkForChange() {
+    
     //console.log("check for change called!");
   }
 

@@ -7,6 +7,7 @@ export default {
             result => {
                 CONFIG.padId = result.data.id;
                 console.log("PAD created with id: " + CONFIG.padId);
+                //console.log("Name(title) from back:" + result.data.name);
             },
             function(err) {
                 console.log("Error: Could not create pad");

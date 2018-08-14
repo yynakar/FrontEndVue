@@ -59,3 +59,10 @@ h4{
 .inlineFormInput{
     border-radius: 10px;
 }
+
+.error_message{
+    color: red;
+}
+.error_input{
+    border: red;
+}

@@ -10,7 +10,7 @@ import restService from "../../services/RestService.js";
 import { bus } from "../../main";
 import RestService from "../../services/RestService";
 import VueClipboard from 'vue-clipboard2'
-import CONFIG from '../../config'
+import CONFIG from '../../config.json'
 
 
 

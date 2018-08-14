@@ -54,9 +54,6 @@ export default {
         this.restService.modifyTitle(this.title);
       }, this.modifyTitleInterval);
     },
-    onCopy: function (e) {
-      //alert('You just copied: ' + CONFIG.padId)
-    },
     onError: function (e) {
       alert('Failed to copy texts')
     }

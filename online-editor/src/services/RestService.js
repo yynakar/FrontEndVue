@@ -1,5 +1,4 @@
 import CONFIG from '../config.json';
-
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -8,18 +7,17 @@ Vue.use(VueAxios, axios)
 
 
 export default class RestService {
-
-    constructor() {
-        this.ip = CONFIG.serverIp;
-        this.port = CONFIG.serverPort;
-        this.padId = null;
-    }
+  constructor() {
+    this.ip = CONFIG.serverIp;
+    this.port = CONFIG.serverPort;
+    this.padId = null;
+    this.deleteValue = 'delete';
+    this.emptyValue = 'empty';
+  }
 
     setPadID(id) {
         this.padId = id;
     }
-
-
     ipAndPort() {
         return this.ip + ":" + this.port;
     }
@@ -52,16 +50,49 @@ export default class RestService {
         return Vue.axios.get(this.ipAndPort() + "/LoadPad/" + padId);
     }
 
-    modifyTitle(title, padID) { //It is called from NewPad when the user sets a title for the first time
-        console.log("modifyTitle Called with: " + title);
-
-        var info = {
-            id: padID,
-            name: title
-        }
-
-        return Vue.axios.post(this.ipAndPort() + "/RenameFile" + info); //logika sosto
+  modifyTitle(title, padID) {
+    console.log("modifyTitle Called with: " + title);
+    var info = {
+      id: padID,
+      name: title
     }
+    return Vue.axios.post(this.ipAndPort() + "/RenameFile" +info);
+  }
+  renameDoc(retitle) {
+    Vue.axios.post(this.ipAndPort() + "/settings", retitle).then(
+      result => {
+        console.log(result);
+      },
+      function (err) {
+        this.errors.push(err);
+      }
+    );
+  }
+  emptyDoc() {
+    console.log("aimilios empty document !");
+    Vue.axios.post(this.ipAndPort() + "/settings", this.emptyValue).then(
+      result => {
+        console.log(result);
+        this.$route.edit;
+      },
+      function (err) {
+        this.errors.push(err);
+      }
+    );
+  }
+  deleteDoc() {
+    console.log("aimilios delete document !");
+
+    Vue.axios.post(this.ipAndPort() + "/settings", this.deleteValue).then(
+      result => {
+        console.log(result);
+        this.$route.MainContent;
+      },
+      function (err) {
+        this.errors.push(err);
+      }
+    );
+  }
 
     getTitle() {
         return Vue.axios.get(this.ipAndPort() + "/Edit/" + padId); //to exoume leei, ante vres to

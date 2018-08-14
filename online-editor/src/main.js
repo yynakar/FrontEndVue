@@ -8,8 +8,11 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueRouter from 'vue-router'
 import VueClipboard from 'vue-clipboard2'
 import VTooltip from 'v-tooltip'
+import VueSocketio from 'vue-socket.io';
+import VModal from 'vue-js-modal'
 import VeeValidate from 'vee-validate';
 
+Vue.use(VModal)
 Vue.use(VTooltip)
 Vue.use(VueClipboard)
 Vue.use(VeeValidate);
@@ -19,7 +22,7 @@ Vue.config.productionTip = false
 
 
 Vue.config.productionTip = false;
-
+Vue.use(VueSocketio, `//${window.location.host}`, store);
 export const bus = new Vue();
 
 var app= new Vue({

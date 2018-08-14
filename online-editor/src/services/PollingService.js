@@ -11,9 +11,7 @@ export default class PollingService {
   constructor() {
     this.pollingTimeInterval = 1000; //milliseconds
     this.timesTicked = 0;
-
     this.restService = new RestService();
-
     this.clock = setInterval(ticker => {
       this.restService.checkForChange();
     }, this.pollingTimeInterval);

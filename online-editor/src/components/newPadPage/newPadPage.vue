@@ -21,13 +21,6 @@ export default {
     newPad: newPad,
     users: users,
   },
-  /*Here will be placed the id we get from the backend
-    props: {
-        id: {
-            type: Number,
-            default: 5
-        }
-    },*/
   data: function() {
     return {
       seTvisibility: true,
@@ -41,7 +34,6 @@ export default {
   },
   mounted() {
     bus.$on("datasended", data => {
-      alert("ela ti leeii mpika mounted data edit newpad");
       this.padId = data;
     });
   },
